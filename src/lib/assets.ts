@@ -36,3 +36,13 @@ export const ICON_PLAN_ARROW  = "https://www.figma.com/api/mcp/asset/28c8521f-1e
 // === DASHBOARD — Background decorative ellipses ===
 export const BG_ELLIPSE_TOP   = "https://www.figma.com/api/mcp/asset/7e5ba66f-e9be-49cf-b47a-84c83eb04ce5";
 export const BG_ELLIPSE_BOTTOM = "https://www.figma.com/api/mcp/asset/8c0fad63-6b88-4e04-8a72-d1424647da65";
+
+// === PROFILE MENU (63:2587) — Dropdown icons ===
+export const ICON_PROFILE_USER   = "https://www.figma.com/api/mcp/asset/7012e232-4591-46a0-9367-b383a5901f7e";
+export const ICON_PROFILE_LOCK   = "https://www.figma.com/api/mcp/asset/709a4d92-abef-4e95-9a90-fc173a5ccad3";
+export const ICON_PROFILE_MAIL   = "https://www.figma.com/api/mcp/asset/ec26e215-c071-4bfd-8900-ff97a21b24fc";
+export const ICON_PROFILE_SWITCH = "https://www.figma.com/api/mcp/asset/f427bc85-b21d-4a7a-9362-771c083dc94e";
+export const ICON_PROFILE_POWER  = "https://www.figma.com/api/mcp/asset/671cb20a-4ec2-4bb9-852c-1d613580e8c7";
+
+// === NOTIFICATIONS MENU (63:1789) ===
+export const NOTIF_INFO_ICON = "https://www.figma.com/api/mcp/asset/d5501b5b-ff3b-4a6e-ae39-07803551d838";
