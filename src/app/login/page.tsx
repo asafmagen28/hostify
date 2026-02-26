@@ -48,14 +48,14 @@ export default function LoginPage() {
         </span>
       </div>
 
-      {/* Glass card — no border per Figma */}
+      {/* Glass card */}
       <div
-        className="relative z-10 rounded-[50px] px-14 py-12 flex flex-col items-center"
+        className="relative z-10 rounded-[50px] px-6 sm:px-14 py-12 flex flex-col items-center w-full max-w-[593px] mx-4"
         style={{
-          width: "593px",
           background: "rgba(255,255,255,0.02)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
+          border: "1px solid rgba(255,255,255,0.1)",
         }}
       >
         {/* Heading */}
@@ -77,15 +77,17 @@ export default function LoginPage() {
         {/* Email input */}
         <div className="w-full mb-4">
           <input
-            type="email"
+            type="text"
+            inputMode="email"
+            autoComplete="email"
             placeholder='דוא"ל'
-            className="w-full outline-none text-right text-[18px]"
+            className="w-full outline-none text-right text-[18px] placeholder-white/40"
             style={{
               height: "66px",
               borderRadius: "7px",
               padding: "22px 25px",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.25)",
+              background: "rgba(255,255,255,0.08)",
+              border: "1.5px solid rgba(255,255,255,0.2)",
               color: "white",
               fontFamily: "var(--font-polin)",
             }}
@@ -98,13 +100,13 @@ export default function LoginPage() {
           <input
             type="password"
             placeholder="סיסמא"
-            className="w-full outline-none text-right text-[18px]"
+            className="w-full outline-none text-right text-[18px] placeholder-white/40"
             style={{
               height: "66px",
               borderRadius: "7px",
               padding: "22px 25px",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.25)",
+              background: "rgba(255,255,255,0.08)",
+              border: "1.5px solid rgba(255,255,255,0.2)",
               color: "white",
               fontFamily: "var(--font-polin)",
             }}
@@ -113,19 +115,14 @@ export default function LoginPage() {
         </div>
 
         {/* Remember me row */}
-        <div className="w-full flex items-center justify-end gap-2 mb-7">
-          <span className="text-white/80 text-[15px]" style={{ fontFamily: "var(--font-polin)" }}>זכור אותי</span>
-          <input
-            type="checkbox"
-            className="cursor-pointer"
-            style={{
-              width: "24px",
-              height: "24px",
-              borderRadius: "3px",
-              border: "1px solid rgba(255,255,255,0.25)",
-              accentColor: "#006eff",
-            }}
-          />
+        <div className="w-full flex items-center justify-start gap-2 mb-7">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" className="sr-only peer" />
+            <div className="w-[16px] h-[16px] rounded-[3px] border border-white/30 peer-checked:bg-[#006eff] peer-checked:border-[#006eff] flex items-center justify-center transition-all" />
+            <span className="text-white/80 text-[15px]" style={{ fontFamily: "var(--font-polin)" }}>
+              זכור אותי
+            </span>
+          </label>
         </div>
 
         {/* Login button */}

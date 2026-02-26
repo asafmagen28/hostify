@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Sidebar from "@/components/layout/Sidebar";
 import Header from "@/components/layout/Header";
 import { BG_ELLIPSE_TOP, BG_ELLIPSE_BOTTOM } from "@/lib/assets";
@@ -7,6 +10,8 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div
       className="flex h-screen overflow-hidden relative"
@@ -26,19 +31,19 @@ export default function DashboardLayout({
         style={{ bottom: 0, right: "60px", width: "320px", zIndex: 0, opacity: 0.8 }}
       />
 
-      {/* Sidebar — must be first in DOM so RTL flex places it on the right */}
-      <Sidebar />
+      {/* Sidebar — static on desktop, overlay on mobile */}
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      {/* Main content area — light blue rounded card */}
+      {/* Main content area — light blue rounded card (margin/rounding only on md+) */}
       <main
-        className="flex-1 m-6 rounded-[26px] overflow-auto relative z-10 flex flex-col"
+        className="flex-1 md:m-6 md:rounded-[26px] overflow-auto relative z-10 flex flex-col"
         style={{ backgroundColor: "#eff6ff" }}
       >
         {/* Header */}
-        <Header />
+        <Header onMenuOpen={() => setSidebarOpen(true)} />
 
         {/* Page content */}
-        <div className="flex-1 px-14 pb-10">{children}</div>
+        <div className="flex-1 px-4 md:px-14 pb-10">{children}</div>
       </main>
     </div>
   );

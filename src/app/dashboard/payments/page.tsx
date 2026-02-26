@@ -5,12 +5,12 @@ export default function PaymentsPage() {
       <div className="flex items-center gap-2 font-polin text-[14px] text-[#001c51]/50 mb-3">
         <a href="/dashboard" className="hover:text-[#006eff] transition-colors">ראשי</a>
         <span>/</span>
-        <span className="font-polin-bold text-[#001c51]">תשלומים</span>
+        <span className="font-extrabold text-[#006eff]">תשלומים</span>
       </div>
 
       {/* Page title */}
       <h1
-        className="text-[#006eff] font-polin-bold mb-8"
+        className="text-[#006eff] font-extrabold mb-8"
         style={{ fontSize: "50px", lineHeight: 1.1 }}
       >
         תשלומים
@@ -18,39 +18,7 @@ export default function PaymentsPage() {
 
       {/* Top row: summary + credit card */}
       <div className="flex gap-6 mb-8">
-        {/* Payment summary card — fixed width per Figma */}
-        <div
-          className="bg-white shadow-sm flex flex-col justify-between"
-          style={{ height: "406px", borderRadius: "35px", width: "743px", padding: "28px" }}
-        >
-          <div className="text-center">
-            <p className="font-polin text-[22px] text-[#001c52] mb-2 text-center">
-              יש לך{" "}
-              <span className="font-polin-bold text-[#006eff]">2 דרישות תשלום</span>{" "}
-              בסך של{" "}
-              <span className="font-polin-bold text-[#006eff]">₪350</span>{" "}
-              לתשלום
-            </p>
-            <p className="font-polin text-[18px] text-[#001c52] opacity-50 text-center">
-              יש לשלם עד לתאריך 01/03/2026
-            </p>
-          </div>
-          <div className="flex justify-center">
-            <button
-              className="text-white font-polin text-[18px] transition-opacity hover:opacity-90"
-              style={{
-                background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
-                height: "43px",
-                padding: "8px 20px",
-                borderRadius: "7px",
-              }}
-            >
-              לתשלום היתרות בחשבון
-            </button>
-          </div>
-        </div>
-
-        {/* Credit card visual — fixed width per Figma */}
+                {/* Credit card visual — fixed width per Figma */}
         <div
           className="flex-shrink-0 flex flex-col justify-between relative overflow-hidden"
           style={{
@@ -123,6 +91,40 @@ export default function PaymentsPage() {
             עדכון פרטי כרטיס
           </button>
         </div>
+        
+        {/* Payment summary card — fixed width per Figma */}
+        <div
+          className="bg-white shadow-sm flex flex-col justify-between"
+          style={{ height: "406px", borderRadius: "35px", width: "743px", padding: "28px" }}
+        >
+          <div className="text-center">
+            <p className="font-polin text-[22px] text-[#001c52] mb-2 text-center">
+              יש לך{" "}
+              <span className="font-polin-bold text-[#006eff]">2 דרישות תשלום</span>{" "}
+              בסך של{" "}
+              <span className="font-polin-bold text-[#006eff]">₪350</span>{" "}
+              לתשלום
+            </p>
+            <p className="font-polin text-[18px] text-[#001c52] opacity-50 text-center">
+              יש לשלם עד לתאריך 01/03/2026
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <button
+              className="text-white font-polin text-[18px] transition-opacity hover:opacity-90"
+              style={{
+                background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
+                height: "43px",
+                padding: "8px 20px",
+                borderRadius: "7px",
+              }}
+            >
+              לתשלום היתרות בחשבון
+            </button>
+          </div>
+        </div>
+
+
       </div>
 
       {/* Personal details card — fixed width per Figma */}
@@ -152,7 +154,7 @@ export default function PaymentsPage() {
           </button>
           <div className="text-right">
             <h3 className="font-polin-bold text-[22px] text-[#001c52]">פרטים אישיים</h3>
-            <p className="font-polin text-[16px] text-[#001c52] opacity-50 mt-1">החשבונות שלך יוסקו עם הפרטים הבאים:</p>
+            <p className="font-polin text-[16px] text-[#001c52] opacity-50 mt-1">החשבונות שלך יופקו עם הפרטים הבאים:</p>
           </div>
         </div>
         <div className="flex gap-5">
@@ -167,8 +169,9 @@ export default function PaymentsPage() {
               width: "664px",
             }}
           >
-            <div className="font-polin text-[14px] text-[#001c52] opacity-60">כתובת</div>
-            <div className="font-polin-bold text-[20px] text-[#001c52]">העמקים 119, רמת גן, ישראל</div>
+
+            <div className="font-polin text-[14px] text-[#001c52] opacity-60">שם / שם חברה</div>
+            <div className="font-polin-bold text-[20px] text-[#001c52]">עומר מיראן</div>
           </div>
 
           {/* Name / company field */}
@@ -182,8 +185,8 @@ export default function PaymentsPage() {
               width: "664px",
             }}
           >
-            <div className="font-polin text-[14px] text-[#001c52] opacity-60">שם / שם חברה</div>
-            <div className="font-polin-bold text-[20px] text-[#001c52]">עומר מיראן</div>
+            <div className="font-polin text-[14px] text-[#001c52] opacity-60">כתובת</div>
+            <div className="font-polin-bold text-[20px] text-[#001c52]">העמקים 119, רמת גן, ישראל</div>
           </div>
         </div>
       </div>

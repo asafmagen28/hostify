@@ -1,6 +1,41 @@
 "use client";
 
+import { useState } from "react";
+
 export default function PartnersPage() {
+  const [isActive, setIsActive] = useState(false);
+
+  if (!isActive) {
+    return (
+      <div className="flex items-center justify-center min-h-full p-8">
+        <div className="bg-white rounded-[35px] px-[140px] py-[58px] flex items-center justify-center">
+          <div className="flex flex-col gap-[35px] items-center w-[615px]">
+            <p className="font-extrabold text-[34px] text-[#006eff] text-center leading-normal">
+              קבלו תשלום על הפניית לקוחות חדשים!
+            </p>
+            <p className="font-polin text-[20px] text-[#001c52] text-center leading-normal">
+              הרוויחו 10% עמלה מכל תשלום המתבצע על ידי הלקוחות שאתם מפנים
+            </p>
+            <div className="flex gap-[23px] items-center">
+              <button
+                onClick={() => setIsActive(true)}
+                className="btn-primary h-[43px] px-[20px] rounded-[7px] font-polin text-[18px] text-white whitespace-nowrap"
+              >
+                הפעלת חשבון שותפים
+              </button>
+              <button className="border border-[#a4a4a4] h-[43px] px-[20px] w-[205px] rounded-[7px] font-polin text-[18px] text-[#006eff]">
+                מידע נוסף
+              </button>
+            </div>
+            <p className="font-polin text-[16px] text-[#001c52] text-center leading-[22px]">
+              לורם איפסום דולור סיט אמט בלינדו תצטריק סת קוויז יבש, וק. וענוף ושבעגט בלינך לכימפו, דול, לפתיעם שעותלשך מנת. קונסקטורר
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* Breadcrumb */}
@@ -65,10 +100,10 @@ export default function PartnersPage() {
       </div>
 
       {/* Bottom panels */}
-      <div className="flex gap-5">
+      <div className="grid grid-cols-3 gap-5">
         {/* Donut chart panel */}
         <div
-          className="bg-white p-7 flex-1 shadow-sm"
+          className="bg-white p-7 shadow-sm"
           style={{ height: "411px", borderRadius: "27px" }}
         >
           <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-6">אנליטיקות</h3>
@@ -108,7 +143,7 @@ export default function PartnersPage() {
 
         {/* Bar chart panel */}
         <div
-          className="bg-white p-7 flex-1 shadow-sm"
+          className="bg-white p-7 shadow-sm"
           style={{ height: "411px", borderRadius: "27px" }}
         >
           <div className="flex items-center justify-between mb-6">
@@ -157,7 +192,7 @@ export default function PartnersPage() {
 
         {/* Revenue panel */}
         <div
-          className="bg-white p-7 w-64 flex-shrink-0 shadow-sm flex flex-col"
+          className="bg-white p-7 shadow-sm flex flex-col"
           style={{ borderRadius: "27px" }}
         >
           <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-2">דשבורד רווחים</h3>

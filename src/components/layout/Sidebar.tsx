@@ -30,7 +30,7 @@ export default function Sidebar() {
       </div>
 
       {/* Nav items */}
-      <nav className="flex flex-col gap-[50px] px-4 flex-1">
+      <nav className="flex flex-col gap-2 px-4 flex-1">
         {navItems.map((item) => {
           const isActive =
             item.href === "/dashboard"
@@ -41,24 +41,26 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-[20px] h-[60px] px-[10px] transition-all relative ${
-                isActive ? "nav-active" : "hover:bg-white/5 rounded-[14px]"
-              }`}
+              className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all ${isActive
+                ? "nav-active"
+                : "hover:bg-white/5"
+                }`}
             >
-              {/* Icon container */}
+              {/* Icon */}
               <span
-                className="size-[37px] rounded-[7px] p-[6px] flex-shrink-0 flex items-center justify-center"
+                className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl"
                 style={{
                   background: isActive
-                    ? "rgba(255,255,255,0.15)"
-                    : "rgba(255,255,255,0.2)",
+                    ? "rgba(0, 110, 255, 0.25)"
+                    : "rgba(255, 255, 255, 0.07)",
                 }}
               >
-                <img src={item.icon} alt="" className="size-[25px] object-contain" />
+                <img src={item.icon} alt="" className="w-5 h-5 object-contain" />
               </span>
               {/* Label */}
               <span
-                className="font-polin text-[22px] text-[#e1f0ff]"
+                className={`text-[17px] font ${isActive ? "text-white" : "text-white/70"
+                  }`}
               >
                 {item.label}
               </span>
@@ -68,35 +70,33 @@ export default function Sidebar() {
       </nav>
 
       {/* Bottom actions */}
-      <div className="px-4 pb-8 flex flex-col gap-4">
+      <div className="px-4 pb-8 flex flex-col gap-2">
         {/* Quick actions */}
-        <div className="flex items-center justify-between px-[10px] py-3">
-          <span className="font-polin text-[22px] text-[#e1f0ff]">פעולות מהירות</span>
-          {/* Blue glowing plus button */}
-          <button
-            className="size-[41px] rounded-[20.5px] flex items-center justify-center p-[10.25px]"
+        <button className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 transition-all w-full">
+          <span
+            className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-full relative"
             style={{
-              background: "#006eff",
-              boxShadow: "0px 0px 28.472px 0px #006eff",
+              background: "linear-gradient(135deg, #006eff 0%, #0044cc 100%)",
+              boxShadow: "0 0 20px rgba(0, 110, 255, 0.6)",
             }}
-            aria-label="פעולות מהירות"
           >
-            <div className="relative size-[20.5px]">
-              <img src={ICON_PLUS_H} alt="" className="absolute inset-0 w-full h-full object-contain" />
-              <img src={ICON_PLUS_V} alt="" className="absolute inset-0 w-full h-full object-contain" />
-            </div>
-          </button>
-        </div>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 1V15" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M1 8H15" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+            </svg>
+          </span>
+          <span className="text-white/70 text-[17px] font-bold">פעולות מהירות</span>
+        </button>
 
         {/* Logout */}
-        <button className="flex items-center gap-[20px] px-[10px] py-3 rounded-[14px] hover:bg-white/5 transition-all w-full">
+        <button className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 transition-all w-full">
           <span
-            className="size-[37px] rounded-[7px] p-[6px] flex-shrink-0 flex items-center justify-center"
-            style={{ background: "rgba(255,255,255,0.2)" }}
+            className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl"
+            style={{ background: "rgba(255, 255, 255, 0.07)" }}
           >
-            <img src={ICON_LOGOUT} alt="" className="size-[25px] object-contain" />
+            <img src={ICON_LOGOUT} alt="" className="w-5 h-5 object-contain" />
           </span>
-          <span className="font-polin text-[22px] text-[#e1f0ff]">יציאה</span>
+          <span className="text-white/70 text-[17px] font-bold">יציאה</span>
         </button>
       </div>
     </aside>
@@ -109,7 +109,7 @@ function HostifyLogo() {
       <HostifyHIcon />
       <span
         className="text-white font-extrabold text-[26px] tracking-wide"
-        style={{ fontFamily: "var(--font-polin)" }}
+        style={{ fontFamily: "var(--font-hebrew)" }}
       >
         ostify
       </span>
