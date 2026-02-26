@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
+/* Polin font — place files at /public/fonts/Polin-Regular.woff2 and Polin-ExtraBold.woff2 */
+@font-face {
+  font-family: 'Polin';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Polin Regular'), local('Polin-Regular'),
+       url('/fonts/Polin-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Polin';
+  font-weight: 800;
+  font-style: normal;
+  src: local('Polin ExtraBold'), local('Polin-ExtraBold'),
+       url('/fonts/Polin-ExtraBold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #006eff;
+  --color-navy: #001c51;
+  --color-navy-dark: #001c52;
+  --color-content-bg: #eff6ff;
+  --color-badge-bg: #e1f0ff;
+  --color-muted: #717171;
+  --color-muted-alt: #8e8e8e;
+  --font-hebrew: var(--font-noto-hebrew), 'Noto Sans Hebrew', 'Arial Hebrew', sans-serif;
+  --font-polin: 'Polin', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
+  --font-polin-bold: 'Polin', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #eff6ff;
+  --foreground: #001c52;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-hebrew);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Glass card style — NO border (Figma: border rgba(255,255,255,0)) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Sidebar nav active glass highlight */
+.nav-active {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12.3px);
+  -webkit-backdrop-filter: blur(12.3px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+}
+
+/* Gradient for blue primary buttons */
+.btn-primary {
+  background: linear-gradient(99.7deg, #006eff 0%, #004299 100%);
+}
+
+/* Blue gradient used in manage/action buttons */
+.gradient-blue {
+  background: linear-gradient(99.7deg, #006eff 0%, #004299 100%);
 }
