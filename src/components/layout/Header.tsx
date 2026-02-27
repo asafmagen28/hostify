@@ -49,7 +49,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
 
       <div className="flex items-center gap-[6px]">
         <button
-          className="flex items-center gap-[6px] transition-colors"
+          className="flex items-center gap-[6px] transition-colors cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-150"
           aria-label="מרכז המידע"
         >
           <span
@@ -65,7 +65,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
       {/* Notifications bell — second in DOM = center */}
       <div ref={notifWrapperRef}>
         <button
-          className="relative flex items-center gap-[6px] transition-colors"
+          className={`relative flex items-center gap-[6px] cursor-pointer active:scale-95 transition-all duration-150 ${!notifOpen ? "hover:opacity-80" : ""}`}
           aria-label="הודעות והתראות"
           aria-expanded={notifOpen}
           aria-haspopup="menu"
@@ -92,7 +92,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
 
       <div className="relative" ref={profileWrapperRef}>
         <button
-          className="flex items-center gap-[10px] md:gap-[12px]"
+          className={`flex items-center gap-[10px] md:gap-[12px] cursor-pointer active:scale-95 transition-all duration-150 ${!profileOpen ? "hover:opacity-80" : ""}`}
           onClick={() => setProfileOpen((v) => !v)}
           aria-expanded={profileOpen}
           aria-haspopup="menu"
@@ -122,7 +122,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
 
       {/* Hamburger — mobile only, last in DOM → leftmost in RTL */}
       <button
-        className="md:hidden flex flex-col gap-[5px] p-2 flex-shrink-0"
+        className="md:hidden flex flex-col gap-[5px] p-2 flex-shrink-0 cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-150"
         aria-label="פתח תפריט"
         onClick={onMenuOpen}
       >
