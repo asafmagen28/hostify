@@ -182,6 +182,23 @@ function StatCard({
         maxHeight: "clamp(140px,17.7vh,191px)",
       }}
     >
+            {/* Circular icon container */}
+      <div
+        className="flex-none flex items-center justify-center rounded-full"
+        style={{
+          width: "clamp(70px, 5.2vw, 99px)",
+          height: "clamp(70px, 5.2vw, 99px)",
+          background: iconBg,
+          border: iconBorder ?? "1px solid rgba(255,255,255,0.15)",
+        }}
+      >
+        <img
+          src={iconSrc}
+          alt=""
+          style={{ width: "clamp(30px, 2.2vw, 42px)", height: "clamp(30px, 2.2vw, 42px)" }}
+        />
+      </div>
+      
       {/* Text block */}
       <div className="flex flex-col gap-2 flex-1">
         <div
@@ -198,22 +215,6 @@ function StatCard({
         </div>
       </div>
 
-      {/* Circular icon container */}
-      <div
-        className="flex-none flex items-center justify-center rounded-full"
-        style={{
-          width: "clamp(70px, 5.2vw, 99px)",
-          height: "clamp(70px, 5.2vw, 99px)",
-          background: iconBg,
-          border: iconBorder ?? "1px solid rgba(255,255,255,0.15)",
-        }}
-      >
-        <img
-          src={iconSrc}
-          alt=""
-          style={{ width: "clamp(30px, 2.2vw, 42px)", height: "clamp(30px, 2.2vw, 42px)" }}
-        />
-      </div>
     </div>
   );
 }
