@@ -7,7 +7,7 @@ export default function PartnersPage() {
 
   if (!isActive) {
     return (
-      <div className="flex items-center justify-center min-h-full p-8">
+      <div className="flex items-start justify-center min-h-full pt-[8%] px-8 pb-8">
         <div className="bg-white rounded-[35px] px-6 sm:px-[60px] lg:px-[140px] py-8 lg:py-[58px] flex items-center justify-center w-full">
           <div className="flex flex-col gap-[35px] items-center w-full max-w-[615px]">
             <p className="font-extrabold text-[34px] text-[#006eff] text-center leading-normal">

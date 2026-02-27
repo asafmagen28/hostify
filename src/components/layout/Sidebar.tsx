@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   ICON_HOME,
@@ -9,6 +10,7 @@ import {
   ICON_PAYMENTS,
   ICON_LOGOUT,
 } from "@/lib/assets";
+import QuickActionsMenu from "./QuickActionsMenu";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -24,6 +26,26 @@ const navItems = [
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
+  const [qaOpen, setQaOpen] = useState(false);
+  const qaWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!qaOpen) return;
+    function handleOutside(e: MouseEvent) {
+      if (qaWrapperRef.current && !qaWrapperRef.current.contains(e.target as Node)) {
+        setQaOpen(false);
+      }
+    }
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") setQaOpen(false);
+    }
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [qaOpen]);
 
   return (
     <>
@@ -40,7 +62,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         className={`
           fixed inset-y-0 right-0 w-[280px] z-50 flex flex-col
           transition-transform duration-300 ease-in-out
-          md:relative md:translate-x-0 md:flex-shrink-0 md:z-10
+          md:relative md:translate-x-0 md:flex-shrink-0 md:z-20
           ${isOpen ? "translate-x-0" : "translate-x-full"}
         `}
         style={{ minHeight: "100vh", backgroundColor: "#001c51" }}
@@ -103,24 +125,35 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         {/* Bottom actions */}
         <div className="px-4 pb-8 flex flex-col gap-2">
           {/* Quick actions */}
-          <button className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 transition-all w-full">
-            <span
-              className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-full relative"
-              style={{
-                background: "linear-gradient(135deg, #006eff 0%, #0044cc 100%)",
-                boxShadow: "0 0 20px rgba(0, 110, 255, 0.6)",
-              }}
+          <div ref={qaWrapperRef} className="relative">
+            {qaOpen && <QuickActionsMenu onClose={() => setQaOpen(false)} />}
+            <button
+              className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 transition-all w-full"
+              aria-expanded={qaOpen}
+              aria-haspopup="menu"
+              onClick={() => setQaOpen((prev) => !prev)}
             >
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 1V15" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                <path d="M1 8H15" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-              </svg>
-            </span>
-            <span className="text-white/70 text-[17px] font-bold">פעולות מהירות</span>
-          </button>
+              <span
+                className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-full relative"
+                style={{
+                  background: "linear-gradient(135deg, #006eff 0%, #0044cc 100%)",
+                  boxShadow: "0 0 20px rgba(0, 110, 255, 0.6)",
+                }}
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 1V15" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                  <path d="M1 8H15" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </span>
+              <span className="text-white/70 text-[17px] font-bold">פעולות מהירות</span>
+            </button>
+          </div>
 
           {/* Logout */}
-          <button className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 transition-all w-full">
+          <Link
+            href="/login"
+            className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 transition-all w-full"
+          >
             <span
               className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl"
               style={{ background: "rgba(255, 255, 255, 0.07)" }}
@@ -128,7 +161,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               <img src={ICON_LOGOUT} alt="" className="w-5 h-5 object-contain" />
             </span>
             <span className="text-white/70 text-[17px] font-bold">יציאה</span>
-          </button>
+          </Link>
         </div>
       </aside>
     </>

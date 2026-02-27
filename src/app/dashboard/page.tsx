@@ -44,7 +44,7 @@ export default function DashboardPage() {
   return (
     <div>
       {/* Greeting row — sun comes AFTER text in DOM so RTL places it on the left */}
-      <div className="flex items-center gap-[6px] mb-6 mt-6">
+      <div className="flex items-center gap-[6px] mb-6">
         <img
           src={ICON_SUN}
           alt=""

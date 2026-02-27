@@ -1,3 +1,9 @@
+import {
+  CARD_BG_MASK,
+  CARD_CHIP_PATTERN,
+  ICON_PENCIL,
+} from "@/lib/assets";
+
 export default function PaymentsPage() {
   return (
     <div>
@@ -17,95 +23,98 @@ export default function PaymentsPage() {
       <div className="flex flex-col lg:flex-row gap-6 mb-8">
         {/* Credit card visual */}
         <div
-          className="w-full lg:w-[693px] lg:h-[405px] flex-shrink-0 flex flex-col justify-between relative overflow-hidden"
+          className="w-full lg:w-[693px] lg:h-[405px] flex-shrink-0 relative overflow-hidden"
           style={{
             borderRadius: "35px",
             minHeight: "260px",
-            background: "linear-gradient(178.38deg, #006eff 0%, #001c52 100%)",
-            padding: "28px",
+            background: "linear-gradient(178.38deg, #006eff 13.491%, #001c52 109.75%)",
           }}
         >
-          {/* Card decorative circles */}
-          <div
-            className="absolute -top-10 -left-10 w-40 h-40 rounded-full opacity-20"
-            style={{ background: "white" }}
-          />
-          <div
-            className="absolute -bottom-8 right-4 w-28 h-28 rounded-full opacity-10"
-            style={{ background: "white" }}
+          {/* Card mask overlay (texture/glare from Figma) */}
+          <img
+            src={CARD_BG_MASK}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
 
-          {/* Chip */}
-          <div className="flex items-start justify-between relative z-10">
-            <div
-              className="w-10 h-8"
-              style={{
-                borderRadius: "11px",
-                background: "linear-gradient(135deg, #ffd700 0%, #cc9900 100%)",
-              }}
-            />
-            <svg width="40" height="25" viewBox="0 0 40 25" fill="none">
-              <circle cx="15" cy="12.5" r="12.5" fill="rgba(255,255,255,0.4)" />
-              <circle cx="25" cy="12.5" r="12.5" fill="rgba(255,255,255,0.25)" />
-            </svg>
-          </div>
-
-          {/* Card number */}
-          <div className="relative z-10">
-            <div
-              className="text-white/90 mb-1"
-              style={{
-                fontFamily: "var(--font-polin)",
-                fontSize: "30.815px",
-                letterSpacing: "1.1005px",
-              }}
-            >
-              XXXX XXXX XXXX 1289
-            </div>
-            <div
-              className="text-white/70"
-              style={{
-                fontFamily: "var(--font-polin)",
-                fontSize: "30.815px",
-                letterSpacing: "1.1005px",
-              }}
-            >
-              09/25
-            </div>
-          </div>
-
-          {/* Update button */}
-          <button
-            className="relative z-10 font-polin text-[18px] text-[#006eff] transition-opacity hover:opacity-90 self-start"
-            style={{
-              background: "white",
-              height: "43px",
-              padding: "8px 20px",
-              borderRadius: "7px",
-            }}
+          {/* Card content */}
+          <div
+            className="relative z-10 h-full flex flex-col justify-between"
+            style={{ padding: "22px 29px", minHeight: "260px" }}
           >
-            עדכון פרטי כרטיס
-          </button>
+            {/* Top row: placeholder text (start/right in RTL) + button (end/left in RTL) */}
+            <div className="flex justify-between items-start">
+              <p
+                className="text-white/80 font-polin"
+                style={{ fontSize: "15px", letterSpacing: "1.1005px" }}
+              >
+                *לורם איפסום דולור סיט אמט איבן לורם
+              </p>
+              <button
+                className="font-polin text-[18px] text-[#006eff] transition-opacity hover:opacity-90"
+                style={{
+                  background: "white",
+                  height: "43px",
+                  padding: "8px 20px",
+                  borderRadius: "7px",
+                }}
+              >
+                עדכון פרטי כרטיס
+              </button>
+            </div>
+
+            {/* Chip — centered */}
+            <div className="flex justify-center">
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  width: "72px",
+                  height: "48px",
+                  borderRadius: "11px",
+                  background: "radial-gradient(circle at 40% 40%, #fff 0%, #dddcda 100%)",
+                }}
+              >
+                <img
+                  src={CARD_CHIP_PATTERN}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Card number + expiry side-by-side */}
+            <div className="flex justify-between items-end">
+              {/* First in DOM → inline-start (RIGHT in RTL): expiry */}
+              <div
+                className="text-white/70 font-polin"
+                style={{ fontSize: "30.815px", letterSpacing: "1.1005px" }}
+              >
+                09/25
+              </div>
+              {/* Last in DOM → inline-end (LEFT in RTL): card number */}
+              <div
+                className="text-white/90 font-polin"
+                style={{ fontSize: "30.815px", letterSpacing: "1.1005px" }}
+              >
+                XXXX XXXX XXXX 1289
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Payment summary card */}
         <div
-          className="bg-white shadow-sm flex flex-col justify-between w-full lg:w-[743px] lg:h-[406px]"
+          className="bg-white shadow-sm flex flex-col justify-center items-center w-full lg:w-[743px] lg:h-[406px]"
           style={{ borderRadius: "35px", minHeight: "220px", padding: "28px" }}
         >
-          <div className="text-center">
-            <p className="font-polin text-[22px] text-[#001c52] mb-2 text-center">
+          <div className="flex flex-col gap-[35px] items-center w-full max-w-[369px]">
+            <p className="font-polin text-[22px] text-[#001c52] text-center">
               יש לך{" "}
               <span className="font-polin-bold text-[#006eff]">2 דרישות תשלום</span>{" "}
               בסך של{" "}
               <span className="font-polin-bold text-[#006eff]">₪350</span>{" "}
               לתשלום
             </p>
-            <p className="font-polin text-[18px] text-[#001c52] opacity-50 text-center">
-              יש לשלם עד לתאריך 01/03/2026
-            </p>
-          </div>
-          <div className="flex justify-center">
             <button
               className="text-white font-polin text-[18px] transition-opacity hover:opacity-90"
               style={{
@@ -128,7 +137,7 @@ export default function PaymentsPage() {
       >
         <div className="flex items-start justify-between mb-6">
           <button
-            className="text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-2"
+            className="text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-[15px]"
             style={{
               background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
               height: "43px",
@@ -136,28 +145,26 @@ export default function PaymentsPage() {
               borderRadius: "7px",
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M11 2l3 3-8 8H3v-3l8-8z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img src={ICON_PENCIL} alt="" className="w-[18px] h-[18px] object-contain" />
             עריכת פרטים
           </button>
-          <div className="text-right">
+          <div className="flex flex-col gap-[20px] items-end text-right">
             <h3 className="font-polin-bold text-[22px] text-[#001c52]">פרטים אישיים</h3>
-            <p className="font-polin text-[16px] text-[#001c52] opacity-50 mt-1">החשבונות שלך יופקו עם הפרטים הבאים:</p>
+            <p className="font-polin text-[16px] text-[#001c52] opacity-50">החשבוניות שלך יונפקו עם הפרטים הבאים:</p>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-5">
+        <div className="flex flex-col sm:flex-row gap-[23px]">
           {/* Name / company field */}
           <div
             className="flex flex-col justify-center flex-1"
             style={{
               border: "1px solid #a8a8a8",
-              minHeight: "80px",
+              minHeight: "110px",
               padding: "20px 25px",
               borderRadius: "15px",
             }}
           >
-            <div className="font-polin text-[14px] text-[#001c52] opacity-60">שם / שם חברה</div>
+            <div className="font-polin text-[14px] text-[#001c52] opacity-60">שם או שם חברה</div>
             <div className="font-polin-bold text-[20px] text-[#001c52]">עומר מיראן</div>
           </div>
 
@@ -166,7 +173,7 @@ export default function PaymentsPage() {
             className="flex flex-col justify-center flex-1"
             style={{
               border: "1px solid #a8a8a8",
-              minHeight: "80px",
+              minHeight: "110px",
               padding: "20px 25px",
               borderRadius: "15px",
             }}

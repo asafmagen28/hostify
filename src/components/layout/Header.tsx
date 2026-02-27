@@ -44,19 +44,19 @@ export default function Header({ onMenuOpen }: HeaderProps) {
   }, [profileOpen, notifOpen]);
 
   return (
-    <header className="flex items-center justify-end h-[60px] md:h-[79px] px-4 md:px-[54px] gap-3 md:gap-[50px] w-full mt-2 md:mt-[1.5vh]">
+    <header className="flex items-center justify-end h-[60px] md:h-[79px] px-4 md:px-[54px] gap-3 md:gap-[50px] w-full mt-4 md:mt-[3vh]">
       {/* User section */}
 
       <div className="flex items-center gap-[6px]">
         <button
-          className="flex items-center gap-[6px] transition-colors cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-150"
+          className="flex items-center gap-[6px] cursor-pointer hover:opacity-80 active:scale-95 transition-all duration-150"
           aria-label="מרכז המידע"
         >
           <span
             className="size-[28px] md:size-[32px] rounded-[5px] p-[4px] flex items-center justify-center"
             style={{ background: "#e1f0ff" }}
           >
-            <img src={ICON_INFO} alt="" className="size-[16px] md:size-[7px] md:h-[14px] object-contain" />
+            <img src={ICON_INFO} alt="" className="size-[16px] md:w-[7px] md:h-[14px] object-contain" />
           </span>
           <span className="font-polin text-[13px] md:text-[14px] text-[#001c52] hidden md:inline">מרכז המידע</span>
         </button>

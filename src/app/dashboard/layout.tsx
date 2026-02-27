@@ -43,7 +43,7 @@ export default function DashboardLayout({
         <Header onMenuOpen={() => setSidebarOpen(true)} />
 
         {/* Page content */}
-        <div className="flex-1 px-4 md:px-14 pb-10">{children}</div>
+        <div className="flex-1 px-4 md:px-14 pb-10 pt-6">{children}</div>
       </main>
     </div>
   );
