@@ -34,22 +34,22 @@ export default function PermissionsPage() {
 
       {/* Page title */}
       <h1
-        className="text-primary font-extrabold mb-4 text-[30px] sm:text-[40px] lg:text-[50px]"
+        className="text-primary font-extrabold mb-[clamp(8px,1vh,16px)] text-[30px] sm:text-[40px] lg:text-[50px]"
         style={{ lineHeight: 1.1 }}
       >
         מורשי גישה לחשבון
       </h1>
 
       {/* Description */}
-      <p className="font-polin text-[18px] text-black leading-8 mb-8">
+      <p className="font-polin text-[18px] text-black leading-8 mb-[clamp(16px,2.5vh,32px)]">
         ניתן להזמין אנשים נוספים לגשת לחשבון שלך. הם יוכלו לראות ולנהל את כל המידע בחשבון לפי ההרשאות שתגדיר להם.
       </p>
 
       {/* Invite button */}
       <button
-        className="btn-primary flex items-center justify-center gap-2 text-white font-polin text-[18px] mb-10 transition-opacity hover:opacity-90 w-full sm:w-auto sm:min-w-[187px] rounded-[7px]"
+        className="btn-primary flex items-center justify-center gap-2 text-white font-polin text-[18px] mb-[clamp(16px,3vh,40px)] transition-opacity hover:opacity-90 w-full sm:w-auto sm:min-w-[187px] rounded-[7px]"
         style={{
-          height: "52px",
+          height: "clamp(44px, 4.8vh, 52px)",
           padding: "8px 20px",
         }}
       >
@@ -58,7 +58,7 @@ export default function PermissionsPage() {
 
       {/* User rows */}
       {PERMISSION_USERS.map((user) => (
-        <div key={user.id} className="bg-white flex flex-wrap items-center mb-4 py-6 lg:py-[30px] px-6 rounded-[20px] gap-y-4">
+        <div key={user.id} className="bg-white flex flex-wrap items-center mb-[clamp(8px,1.2vh,16px)] py-[clamp(16px,2.5vh,30px)] px-6 rounded-[20px] gap-y-4">
 
           {/* Col 1 (rightmost in RTL): Avatar + name + email */}
           <div className="w-full sm:flex-1 flex items-center">
@@ -94,7 +94,7 @@ export default function PermissionsPage() {
       ))}
 
       {/* Footnote */}
-      <p className="font-polin text-[18px] text-navy/50 mt-4">
+      <p className="font-polin text-[18px] text-navy/50 mt-[clamp(8px,1vh,16px)]">
         • לבעל החשבון תמיד יש הרשאות מלאות
       </p>
     </div>

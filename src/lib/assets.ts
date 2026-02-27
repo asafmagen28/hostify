@@ -60,6 +60,16 @@ export const ICON_QA_SUPPORT         = "https://www.figma.com/api/mcp/asset/2ec9
 export const ICON_QA_CANCEL          = "https://www.figma.com/api/mcp/asset/69bc9699-421e-43ed-8ef8-cf39e148f061";
 
 // === PAYMENTS PAGE (34:178) ===
-export const CARD_BG_MASK      = "https://www.figma.com/api/mcp/asset/6fdcf40e-6ee8-407a-a7c3-d87302241f3b";
-export const CARD_CHIP_PATTERN = "https://www.figma.com/api/mcp/asset/d657131d-d321-4909-ba1c-08d2b1dd3a98";
-export const ICON_PENCIL       = "https://www.figma.com/api/mcp/asset/2cc8eedb-6310-4138-9276-4c6733e4cd87";
+export const CARD_BG_MASK      = "https://www.figma.com/api/mcp/asset/1e5e18e5-777c-43bf-8a20-ed6ebf337882";
+export const CARD_CHIP_PATTERN = "https://www.figma.com/api/mcp/asset/33902d1b-a6c1-4ad8-b040-fc0855bb192d";
+export const ICON_PENCIL       = "https://www.figma.com/api/mcp/asset/34d0c308-d678-46ae-9dd4-fd0e532dd139";
+
+// === PARTNERS PAGE (17:632) ===
+export const PARTNERS_CIRCLE        = "https://www.figma.com/api/mcp/asset/819bc6cd-b52c-4d37-9720-f8abd219d8f5";
+export const PARTNERS_IDENTIFIER_1  = "https://www.figma.com/api/mcp/asset/8f59d8db-2fd2-455d-93fa-31ef6345e411";
+export const PARTNERS_IDENTIFIER_2  = "https://www.figma.com/api/mcp/asset/4304c7f1-d817-4a14-8b64-5ecf4d89bc34";
+export const PARTNERS_DIVIDER       = "https://www.figma.com/api/mcp/asset/fd12bc41-8a55-4839-868a-4aff684392f6";
+export const PARTNERS_CHART_LINES   = "https://www.figma.com/api/mcp/asset/5d410f42-5114-43c6-9998-4b8ce31b4d37";
+export const PARTNERS_ICON_CLICKS   = "https://www.figma.com/api/mcp/asset/eaabba21-84f1-45d8-a71d-6ae8c80f5501";
+export const PARTNERS_ICON_SIGNUPS  = "https://www.figma.com/api/mcp/asset/4ba102b4-cc62-4a57-ba37-fe4a5f4f916f";
+export const PARTNERS_ICON_CONVERSION = "https://www.figma.com/api/mcp/asset/c1d80f3c-10da-47de-a80b-e6df5138fd69";

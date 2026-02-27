@@ -1,9 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import {
+  PARTNERS_CIRCLE,
+  PARTNERS_IDENTIFIER_1,
+  PARTNERS_IDENTIFIER_2,
+  PARTNERS_DIVIDER,
+  PARTNERS_CHART_LINES,
+  PARTNERS_ICON_CLICKS,
+  PARTNERS_ICON_SIGNUPS,
+  PARTNERS_ICON_CONVERSION,
+} from "@/lib/assets";
 
 export default function PartnersPage() {
   const [isActive, setIsActive] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   if (!isActive) {
     return (
@@ -47,192 +58,211 @@ export default function PartnersPage() {
 
       {/* Page title */}
       <h1
-        className="text-primary font-polin font-extrabold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]"
-        style={{ lineHeight: 1.1 }}
+        className="text-primary font-polin font-extrabold mb-[clamp(12px,2vh,24px)]"
+        style={{ fontSize: "clamp(30px, 2.6vw, 50px)", lineHeight: 1.1 }}
       >
         חשבון שותפים
       </h1>
 
       {/* Top 3 stat cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-        {/* Clicks stat — dark navy */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-[clamp(12px,2vh,24px)]">
+        {/* Clicks stat — navy gradient */}
         <StatCard
           value="1,250"
           label="קליקים על קישור"
-          bg="linear-gradient(135deg, #001c51 0%, #001c51 100%)"
+          bg="linear-gradient(to right, #001c52 0%, #003fb8 100%)"
           textColor="white"
           border="1px solid rgba(255,255,255,0.15)"
-          icon={
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-            </svg>
-          }
+          iconSrc={PARTNERS_ICON_CLICKS}
+          iconBg="linear-gradient(227deg, rgba(255,255,255,0.15) 18%, rgba(146,146,146,0.15) 90%)"
         />
 
-        {/* Signups stat — blue */}
+        {/* Signups stat — blue gradient */}
         <StatCard
           value="64"
           label="נרשמו דרכך"
           bg="linear-gradient(99.7deg, #006eff 0%, #004299 100%)"
           textColor="white"
-          icon={
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          }
+          iconSrc={PARTNERS_ICON_SIGNUPS}
+          iconBg="linear-gradient(227deg, rgba(255,255,255,0.15) 18%, rgba(146,146,146,0.15) 90%)"
         />
 
-        {/* Conversion stat — white */}
+        {/* Conversion stat — white/gray */}
         <StatCard
           value="15.43%"
           label="אחוזי ההמרה שלך"
-          bg="white"
+          bg="linear-gradient(to right, white 0%, #e0e0e0 100%)"
           textColor="#001c51"
-          icon={
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#001c51" strokeWidth="2">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-            </svg>
-          }
+          iconSrc={PARTNERS_ICON_CONVERSION}
+          iconBg="linear-gradient(227deg, rgba(0,28,82,0.08) 18%, rgba(146,146,146,0.08) 90%)"
+          iconBorder="1px solid rgba(0,28,82,0.12)"
         />
       </div>
 
-      {/* Bottom panels */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        {/* Donut chart panel */}
+      {/* Bottom panels: narrow analytics + wide combined */}
+      <div
+        className="grid grid-cols-1 lg:grid-cols-[clamp(300px,22.9vw,440px)_1fr] gap-5 mb-[clamp(12px,2vh,24px)]"
+      >
+        {/* Analytics panel */}
+        <AnalyticsPanel />
+
+        {/* Wide combined card: Activity + Revenue */}
         <div
-          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px] rounded-[27px]"
+          className="bg-white rounded-[27px] flex overflow-hidden"
+          style={{ minHeight: "clamp(270px,32vh,411px)", maxHeight: "clamp(270px,32vh,411px)" }}
         >
-          <h3 className="font-polin font-extrabold text-[22px] text-navy mb-6">אנליטיקות</h3>
-          <div className="flex items-center justify-center gap-8">
-            {/* Donut chart placeholder */}
-            <div className="relative w-36 h-36">
-              <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#e1f0ff" strokeWidth="14" />
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="38"
-                  fill="none"
-                  stroke="#006eff"
-                  strokeWidth="14"
-                  strokeDasharray={`${2 * Math.PI * 38 * 0.65} ${2 * Math.PI * 38 * 0.35}`}
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-polin font-extrabold text-navy text-[18px]">₪7,656</span>
-              </div>
-            </div>
-
-            {/* Legend */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-primary" />
-                <span className="font-polin text-navy text-[14px]">₪4,976 — 65%</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-badge-bg" />
-                <span className="font-polin text-navy text-[14px]">₪2,680 — 35%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bar chart panel */}
-        <div
-          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px] rounded-[27px]"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="font-polin font-extrabold text-[22px] text-navy">פעילות</h3>
-            <div className="flex gap-2">
-              {["יומי", "שבועי", "חודשי"].map((tab) => (
-                <button
-                  key={tab}
-                  className={`px-3 py-1 rounded-full font-polin text-[13px] transition-colors ${
-                    tab === "שבועי"
-                      ? "bg-primary text-white"
-                      : "text-navy/50 hover:text-navy"
-                  }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Bar chart */}
-          <div className="flex items-end gap-3 h-28">
-            {[
-              { day: "ראשון", h: 60 },
-              { day: "שני", h: 85 },
-              { day: "שלישי", h: 45 },
-              { day: "רביעי", h: 100 },
-              { day: "חמישי", h: 70 },
-              { day: "שישי", h: 55 },
-              { day: "שבת", h: 30 },
-            ].map(({ day, h }) => (
-              <div key={day} className="flex flex-col items-center gap-1 flex-1">
-                <div
-                  className="w-full rounded-t-md"
-                  style={{
-                    height: `${h}%`,
-                    background: "linear-gradient(180deg, #006eff 0%, #004299 100%)",
-                    opacity: h === 100 ? 1 : 0.4 + (h / 200),
-                  }}
-                />
-                <span className="font-polin text-[11px] text-navy/50">{day}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Revenue panel */}
-        <div
-          className="bg-white p-7 shadow-sm flex flex-col min-h-[300px] lg:h-[411px] rounded-[27px]"
-        >
-          <h3 className="font-polin font-extrabold text-[22px] text-navy mb-2">דשבורד רווחים</h3>
-          <div className="flex-1 flex flex-col justify-center gap-3">
-            <div>
-              <div className="font-polin font-extrabold text-navy text-[28px]">₪1256</div>
-              <div className="font-polin text-navy opacity-50 text-[13px] mt-1">עמלות זמניות שצברת</div>
-            </div>
-            <div>
-              <div className="font-polin font-extrabold text-navy text-[28px]">₪5400</div>
-              <div className="font-polin text-navy opacity-50 text-[13px] mt-1">סך כל המשיכות שלך</div>
-            </div>
-          </div>
-          <button
-            className="btn-primary w-full py-3 text-white font-polin text-[18px] mt-4 transition-opacity hover:opacity-90 rounded-[7px]"
-          >
-            בקשת משיכה
-          </button>
+          <ActivityPanel />
+          <RevenueDivider />
+          <RevenuePanel />
         </div>
       </div>
 
       {/* Referral link */}
-      <div className="mt-8">
-        <div className="font-polin font-extrabold text-navy text-[16px] mb-3">קישור השותפים שלך</div>
+      <div>
         <div
-          className="flex items-center px-5 w-full"
-          style={{
-            background: "white",
-            height: "80px",
-            borderRadius: "7px",
-          }}
+          className="font-polin font-extrabold text-primary mb-3"
+          style={{ fontSize: "clamp(18px, 1.4vw, 27px)" }}
         >
-          <div
-            className="flex items-center px-5 font-polin text-navy opacity-40 text-[15px] w-full overflow-hidden"
-            style={{
-              border: "1px solid #cacaca",
-              height: "50px",
-              borderRadius: "7px",
+          קישור השותפים שלך
+        </div>
+        <div
+          className="flex items-center px-5 w-full bg-white rounded-[7px]"
+          style={{ height: "clamp(70px, 9vh, 105px)" }}
+        >
+          <button
+            onClick={() => {
+              navigator.clipboard.writeText("https://hostify.co.il/ref/eldad-xxxxxxxxxxxxxxxxx");
+              setCopied(true);
+              setTimeout(() => setCopied(false), 2000);
             }}
+            className="flex items-center px-5 font-polin text-[#676767] text-[15px] w-full overflow-hidden rounded-[7px] border border-[#cacaca] cursor-pointer"
+            style={{ height: "clamp(45px, 5.6vh, 65px)" }}
           >
             <span className="truncate w-full text-right">
               https://hostify.co.il/ref/eldad-xxxxxxxxxxxxxxxxx
             </span>
+            <span className="mr-3 text-[13px] text-primary font-polin whitespace-nowrap">
+              {copied ? "הועתק!" : "העתק"}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── StatCard ─────────────────────────────────────────────────────────── */
+function StatCard({
+  value,
+  label,
+  bg,
+  textColor,
+  border,
+  iconSrc,
+  iconBg,
+  iconBorder,
+}: {
+  value: string;
+  label: string;
+  bg: string;
+  textColor: string;
+  border?: string;
+  iconSrc: string;
+  iconBg: string;
+  iconBorder?: string;
+}) {
+  return (
+    <div
+      className="px-[clamp(16px,1.8vw,34px)] flex items-center gap-[clamp(16px,1.6vw,30px)]"
+      style={{
+        background: bg,
+        borderRadius: "27px",
+        border,
+        minHeight: "clamp(140px,17.7vh,191px)",
+        maxHeight: "clamp(140px,17.7vh,191px)",
+      }}
+    >
+      {/* Text block */}
+      <div className="flex flex-col gap-2 flex-1">
+        <div
+          className="font-polin font-extrabold"
+          style={{ color: textColor, fontSize: "clamp(28px, 2.2vw, 42px)" }}
+        >
+          {value}
+        </div>
+        <div
+          className="font-polin text-[20px]"
+          style={{ color: textColor === "white" ? "rgba(255,255,255,0.7)" : "rgba(0,28,82,0.6)" }}
+        >
+          {label}
+        </div>
+      </div>
+
+      {/* Circular icon container */}
+      <div
+        className="flex-none flex items-center justify-center rounded-full"
+        style={{
+          width: "clamp(70px, 5.2vw, 99px)",
+          height: "clamp(70px, 5.2vw, 99px)",
+          background: iconBg,
+          border: iconBorder ?? "1px solid rgba(255,255,255,0.15)",
+        }}
+      >
+        <img
+          src={iconSrc}
+          alt=""
+          style={{ width: "clamp(30px, 2.2vw, 42px)", height: "clamp(30px, 2.2vw, 42px)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ─── AnalyticsPanel ───────────────────────────────────────────────────── */
+function AnalyticsPanel() {
+  return (
+    <div
+      className="bg-white rounded-[27px] p-6 flex flex-col overflow-hidden"
+      style={{ minHeight: "clamp(270px,32vh,411px)", maxHeight: "clamp(270px,32vh,411px)" }}
+    >
+      {/* Title + thin divider line */}
+      <div className="flex-shrink-0 mb-3">
+        <h3 className="font-polin font-extrabold text-[18px] text-black mb-2">אנליטיקות</h3>
+        <div className="w-full h-px bg-[#e8e8e8]" />
+      </div>
+
+      {/* Circle + legend — fills remaining space */}
+      <div className="flex-1 flex flex-col items-center justify-center gap-4 min-h-0">
+        {/* Donut circle image with center text overlay */}
+        <div className="relative flex items-center justify-center flex-shrink-0">
+          <img
+            src={PARTNERS_CIRCLE}
+            alt="analytics donut"
+            style={{
+              width: "clamp(110px, 9.5vw, 182px)",
+              height: "clamp(110px, 9.5vw, 182px)",
+            }}
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <span
+              className="font-polin font-extrabold text-navy"
+              style={{ fontSize: "clamp(16px, 1.5vw, 28px)" }}
+            >
+              ₪7,656
+            </span>
+            <span className="font-polin text-[14px] text-[#615e83]">הכנסות</span>
+          </div>
+        </div>
+
+        {/* Legend */}
+        <div className="flex flex-col gap-2 w-full px-2 flex-shrink-0">
+          <div className="flex items-center gap-2">
+            <img src={PARTNERS_IDENTIFIER_1} alt="" className="w-4 h-4 flex-shrink-0" />
+            <span className="font-polin text-[13px] text-navy">65% לורם</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <img src={PARTNERS_IDENTIFIER_2} alt="" className="w-4 h-4 flex-shrink-0" />
+            <span className="font-polin text-[13px] text-navy">35% לורם איפסום</span>
           </div>
         </div>
       </div>
@@ -240,41 +270,151 @@ export default function PartnersPage() {
   );
 }
 
-function StatCard({
-  value,
-  label,
-  bg,
-  textColor,
-  border,
-  icon,
-}: {
-  value: string;
-  label: string;
-  bg: string;
-  textColor: string;
-  border?: string;
-  icon: React.ReactNode;
-}) {
+/* ─── ActivityPanel ────────────────────────────────────────────────────── */
+// Fixed chart area height in px — bars use pixel heights derived from this
+const CHART_H = 155;
+
+function ActivityPanel() {
+  const [activeTab, setActiveTab] = useState("שבועי");
+  const tabs = ["יומי", "שבועי", "חודשי"];
+
+  const barGroups = [
+    { label: "א", bars: [80, 60, 45, 30] },
+    { label: "ב", bars: [100, 75, 55, 40] },
+    { label: "ג", bars: [55, 40, 30, 20] },
+    { label: "ד", bars: [90, 70, 50, 35] },
+    { label: "ה", bars: [70, 55, 40, 25] },
+    { label: "ו", bars: [60, 45, 35, 20] },
+    { label: "ש", bars: [40, 30, 20, 15] },
+  ];
+
+  const barColors = ["#001c51", "#006eff", "#b3d4ff", "#333333"];
+  const yLabels = ["1.5M", "1M", "500k", "200k", "100k", "50k", "0"];
+
+  return (
+    <div className="flex-1 p-6 flex flex-col overflow-hidden">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-4 flex-shrink-0">
+        <h3 className="font-polin font-extrabold text-[18px] text-navy">פעילות</h3>
+        <div
+          className="flex items-center rounded-[12.5px] h-[41px] px-1 gap-1"
+          style={{ background: "#e1f0ff", width: "clamp(160px, 10.5vw, 202px)" }}
+        >
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className="flex-1 h-[33px] font-polin text-[13px] rounded-[11px] transition-colors"
+              style={{
+                background: activeTab === tab ? "#006eff" : "transparent",
+                color: activeTab === tab ? "white" : "#9291a5",
+              }}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Chart: y-axis + bars side by side */}
+      <div className="flex gap-2 flex-shrink-0">
+        {/* Y-axis labels — aligned to bar chart height */}
+        <div
+          className="flex flex-col justify-between flex-shrink-0 pb-5"
+          style={{ height: CHART_H + 20 }}
+        >
+          {yLabels.map((label) => (
+            <span key={label} className="font-polin text-[9px] text-navy/50 leading-none">
+              {label}
+            </span>
+          ))}
+        </div>
+
+        {/* Bar chart area */}
+        <div
+          className="flex-1 relative rounded-[8px] overflow-hidden"
+          style={{
+            height: CHART_H + 20,
+            backgroundImage: `url(${PARTNERS_CHART_LINES})`,
+            backgroundSize: "100% 100%",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          {/* Bars absolutely positioned, bottom-anchored */}
+          <div className="absolute inset-x-0 bottom-5 top-0 flex items-end gap-[clamp(2px,0.5vw,8px)] px-2">
+            {barGroups.map((group) => (
+              <div key={group.label} className="flex-1 flex flex-col items-center gap-0">
+                {/* 4 bars per group, side by side, growing from bottom */}
+                <div className="flex items-end gap-[2px] justify-center w-full">
+                  {group.bars.map((h, i) => (
+                    <div
+                      key={i}
+                      className="rounded-t-[2px] flex-shrink-0"
+                      style={{
+                        height: `${Math.round((CHART_H * h) / 100)}px`,
+                        width: "clamp(3px, 0.4vw, 6px)",
+                        background: barColors[i],
+                      }}
+                    />
+                  ))}
+                </div>
+                <span className="font-polin text-[9px] text-navy/50 mt-1 leading-none">{group.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── RevenueDivider ────────────────────────────────────────────────────── */
+function RevenueDivider() {
+  return (
+    <div className="w-px bg-[#e8e8e8] my-6 flex-shrink-0" />
+  );
+}
+
+/* ─── RevenuePanel ──────────────────────────────────────────────────────── */
+function RevenuePanel() {
   return (
     <div
-      className="p-6 flex flex-col gap-3 min-h-[140px] lg:h-[191px]"
-      style={{ background: bg, borderRadius: "27px", border }}
+      className="flex-none flex flex-col p-6"
+      style={{ width: "clamp(160px, 11.4vw, 219px)" }}
     >
-      <div className="flex items-center justify-between">
-        {icon}
+      <h3 className="font-polin font-extrabold text-[15px] text-navy mb-4 flex-shrink-0 whitespace-nowrap">
+        דשבורד רווחים
+      </h3>
+      <div className="flex-1 flex flex-col justify-center gap-4">
+        <div>
+          <div
+            className="font-polin font-extrabold text-navy"
+            style={{ fontSize: "clamp(20px, 1.5vw, 28px)" }}
+          >
+            ₪1256
+          </div>
+          <div className="font-polin text-navy/50 text-[13px] mt-1">עמלות זמינות שצברת</div>
+        </div>
+        <div>
+          <div
+            className="font-polin font-extrabold text-navy"
+            style={{ fontSize: "clamp(20px, 1.5vw, 28px)" }}
+          >
+            ₪5400
+          </div>
+          <div className="font-polin text-navy/50 text-[13px] mt-1">סך כל המשיכות שלך</div>
+        </div>
       </div>
-      <div
-        className="font-polin text-[42px]"
-        style={{ color: textColor }}
+      <button
+        className="w-full font-polin text-[16px] font-extrabold rounded-[10px] flex-shrink-0 transition-opacity hover:opacity-80"
+        style={{
+          background: "#e1f0ff",
+          color: "#006eff",
+          height: "clamp(42px, 5.5vh, 53px)",
+        }}
       >
-        {value}
-      </div>
-      <div
-        className="font-polin text-[20px]"
-        style={{ color: textColor === "white" ? "rgba(255,255,255,0.7)" : "rgba(0,28,82,0.6)" }}
-      >
-        {label}
-      </div>
+        בקשת משיכה
+      </button>
     </div>
   );
 }

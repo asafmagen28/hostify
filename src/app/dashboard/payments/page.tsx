@@ -8,25 +8,27 @@ export default function PaymentsPage() {
   return (
     <div>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 font-polin text-[14px] text-navy/50 mb-3">
+      <div className="flex items-center gap-2 font-polin text-[14px] text-navy mb-3">
         <a href="/dashboard" className="hover:text-primary transition-colors">ראשי</a>
         <span>/</span>
         <span className="font-extrabold text-primary">תשלומים</span>
       </div>
 
       {/* Page title */}
-      <h1 className="text-primary font-extrabold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]" style={{ lineHeight: 1.1 }}>
+      <h1 className="text-primary font-extrabold mb-[clamp(12px,1.15vw,32px)] text-[30px] sm:text-[40px] lg:text-[50px]" style={{ lineHeight: 1.1 }}>
         תשלומים
       </h1>
 
       {/* Top row: credit card + payment summary */}
-      <div className="flex flex-col lg:flex-row gap-6 mb-8">
+      <div className="flex flex-col lg:flex-row gap-6 mb-[clamp(8px,0.85vw,24px)]">
         {/* Credit card visual */}
         <div
-          className="w-full lg:w-[693px] lg:h-[405px] flex-shrink-0 relative overflow-hidden"
+          className="w-full lg:w-1/2 relative overflow-hidden"
           style={{
             borderRadius: "35px",
-            minHeight: "260px",
+            minHeight: "220px",
+            aspectRatio: "693/405",
+            maxHeight: "clamp(260px, 38vh, 420px)",
             background: "linear-gradient(178.38deg, #006eff 13.491%, #001c51 109.75%)",
           }}
         >
@@ -40,13 +42,13 @@ export default function PaymentsPage() {
           {/* Card content */}
           <div
             className="relative z-10 h-full flex flex-col justify-between"
-            style={{ padding: "22px 29px", minHeight: "260px" }}
+            style={{ padding: "clamp(14px, 1.15vw, 26px) 29px" }}
           >
             {/* Top row: placeholder text (start/right in RTL) + button (end/left in RTL) */}
             <div className="flex justify-between items-start">
               <p
                 className="text-white/80 font-polin"
-                style={{ fontSize: "15px", letterSpacing: "1.1005px" }}
+                style={{ fontSize: "clamp(12px, 0.9vw, 16px)", letterSpacing: "1.1005px" }}
               >
                 *לורם איפסום דולור סיט אמט איבן לורם
               </p>
@@ -63,13 +65,13 @@ export default function PaymentsPage() {
               </button>
             </div>
 
-            {/* Chip — centered */}
-            <div className="flex justify-center">
+            {/* Chip — left */}
+            <div className="flex justify-end ml-8">
               <div
                 className="relative overflow-hidden"
                 style={{
-                  width: "72px",
-                  height: "48px",
+                  width: "clamp(48px, 3.75vw, 72px)",
+                  height: "clamp(32px, 2.5vw, 48px)",
                   borderRadius: "11px",
                   background: "radial-gradient(circle at 40% 40%, #fff 0%, #dddcda 100%)",
                 }}
@@ -87,14 +89,14 @@ export default function PaymentsPage() {
               {/* First in DOM → inline-start (RIGHT in RTL): expiry */}
               <div
                 className="text-white/70 font-polin"
-                style={{ fontSize: "30.815px", letterSpacing: "1.1005px" }}
+                style={{ fontSize: "clamp(16px, 1.6vw, 32px)", letterSpacing: "1.1005px" }}
               >
                 09/25
               </div>
               {/* Last in DOM → inline-end (LEFT in RTL): card number */}
               <div
                 className="text-white/90 font-polin"
-                style={{ fontSize: "30.815px", letterSpacing: "1.1005px" }}
+                style={{ fontSize: "clamp(16px, 1.6vw, 32px)", letterSpacing: "1.1005px" }}
               >
                 XXXX XXXX XXXX 1289
               </div>
@@ -104,10 +106,10 @@ export default function PaymentsPage() {
 
         {/* Payment summary card */}
         <div
-          className="bg-white shadow-sm flex flex-col justify-center items-center w-full lg:w-[743px] lg:h-[406px]"
-          style={{ borderRadius: "35px", minHeight: "220px", padding: "28px" }}
+          className="bg-white shadow-sm flex flex-col justify-center items-center w-full lg:w-1/2"
+          style={{ borderRadius: "35px", padding: "clamp(18px, 1.46vw, 32px)" }}
         >
-          <div className="flex flex-col gap-[35px] items-center w-full max-w-[369px]">
+          <div className="flex flex-col gap-[clamp(20px,1.82vw,40px)] items-center w-full max-w-[369px]">
             <p className="font-polin text-[22px] text-navy text-center">
               יש לך{" "}
               <span className="font-polin font-extrabold text-primary">2 דרישות תשלום</span>{" "}
@@ -130,10 +132,14 @@ export default function PaymentsPage() {
 
       {/* Personal details card */}
       <div
-        className="bg-white shadow-sm w-full px-6 sm:px-8 lg:px-[52px] py-8 lg:py-[48px]"
+        className="bg-white shadow-sm w-full px-6 sm:px-8 lg:px-[52px] py-[clamp(14px,1.15vw,36px)]"
         style={{ borderRadius: "35px" }}
       >
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex items-start justify-between mb-[clamp(10px,0.85vw,24px)]">
+          <div className="flex flex-col gap-[clamp(12px,1.04vw,24px)] items-start text-right">
+            <h3 className="font-polin font-extrabold text-[22px] text-navy">פרטים אישיים</h3>
+            <p className="font-polin text-[16px] text-navy">החשבוניות שלך יונפקו עם הפרטים הבאים:</p>
+          </div>
           <button
             className="btn-primary text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-[15px] rounded-[7px]"
             style={{
@@ -144,19 +150,15 @@ export default function PaymentsPage() {
             <img src={ICON_PENCIL} alt="" className="w-[18px] h-[18px] object-contain" />
             עריכת פרטים
           </button>
-          <div className="flex flex-col gap-[20px] items-end text-right">
-            <h3 className="font-polin font-extrabold text-[22px] text-navy">פרטים אישיים</h3>
-            <p className="font-polin text-[16px] text-navy opacity-50">החשבוניות שלך יונפקו עם הפרטים הבאים:</p>
-          </div>
         </div>
-        <div className="flex flex-col sm:flex-row gap-[23px]">
+        <div className="flex flex-col sm:flex-row gap-[clamp(14px,1.18vw,28px)]">
           {/* Name / company field */}
           <div
             className="flex flex-col justify-center flex-1"
             style={{
               border: "1px solid #a8a8a8",
-              minHeight: "110px",
-              padding: "20px 25px",
+              minHeight: "clamp(70px, 8vh, 90px)",
+              padding: "clamp(14px,1.15vw,36px) clamp(20px,2vw,25px)",
               borderRadius: "15px",
             }}
           >
@@ -169,8 +171,8 @@ export default function PaymentsPage() {
             className="flex flex-col justify-center flex-1"
             style={{
               border: "1px solid #a8a8a8",
-              minHeight: "110px",
-              padding: "20px 25px",
+              minHeight: "clamp(70px, 8vh, 90px)",
+              padding: "clamp(14px,1.15vw,36px) clamp(20px,2vw,25px)",
               borderRadius: "15px",
             }}
           >
@@ -180,45 +182,6 @@ export default function PaymentsPage() {
         </div>
       </div>
 
-      {/* Transaction history */}
-      <div className="bg-white rounded-[35px] p-7 shadow-sm mt-6">
-        <h3 className="font-polin font-extrabold text-[22px] text-navy mb-6">היסטוריית עסקאות</h3>
-
-        <div className="overflow-x-auto">
-          {/* Table headers */}
-          <div className="flex items-center px-4 mb-3 font-polin font-extrabold text-[16px] text-navy opacity-50 min-w-[480px]">
-            <div className="flex-1">תיאור</div>
-            <div className="w-36">תאריך</div>
-            <div className="w-28 text-right">סכום</div>
-            <div className="w-28 text-center">סטטוס</div>
-          </div>
-
-          {/* Transaction rows */}
-          {[
-            { desc: "אחסון וורדפרס — גוניור", date: "01/02/2026", amount: "₪120", status: "שולם" },
-            { desc: "אחסון וורדפרס — גוניור", date: "01/01/2026", amount: "₪120", status: "שולם" },
-            { desc: "תעודת SSL", date: "15/12/2025", amount: "₪89", status: "שולם" },
-            { desc: "אחסון וורדפרס — גוניור", date: "01/12/2025", amount: "₪120", status: "שולם" },
-          ].map((tx, i) => (
-            <div
-              key={i}
-              className="flex items-center px-4 py-4 rounded-[7px] hover:bg-[#f8fbff] transition-colors min-w-[480px]"
-            >
-              <div className="flex-1 font-polin text-[18px] text-navy">{tx.desc}</div>
-              <div className="w-36 font-polin text-[16px] text-navy opacity-60">{tx.date}</div>
-              <div className="w-28 text-right font-polin font-extrabold text-[18px] text-navy">{tx.amount}</div>
-              <div className="w-28 flex justify-center">
-                <span
-                  className="px-3 py-1 rounded-full font-polin text-[14px]"
-                  style={{ background: "#e1f8ee", color: "#00a550" }}
-                >
-                  {tx.status}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

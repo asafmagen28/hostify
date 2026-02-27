@@ -51,8 +51,8 @@ export default function DashboardPage() {
           className="w-[52px] h-[40px] object-contain flex-shrink-0"
         />
         <h1
-          className="font-polin text-navy text-[22px] sm:text-[28px] md:text-[34px]"
-          style={{ lineHeight: 1.1, paddingRight: "10px", paddingBottom: "6px" }}
+          className="font-polin text-navy"
+          style={{ lineHeight: 1.1, paddingRight: "10px", paddingBottom: "6px", fontSize: "clamp(22px, 1.77vw, 34px)" }}
         >
           בוקר טוב,{" "}
           <span className="text-primary font-extrabold ">אלדד</span>
@@ -61,15 +61,15 @@ export default function DashboardPage() {
 
       {/* Section title — Noto Sans Hebrew Bold per Figma */}
       <h2
-        className="text-primary font-bold mb-5 mt-8"
-        style={{ fontSize: "25px", fontFamily: "var(--font-hebrew)", fontVariationSettings: "'wdth' 100" }}
+        className="text-primary font-bold mb-[clamp(10px,1.85vh,20px)] mt-[clamp(16px,3.0vh,32px)]"
+        style={{ fontSize: "clamp(18px,1.3vw,25px)", fontFamily: "var(--font-hebrew)", fontVariationSettings: "'wdth' 100" }}
       >
         חבילות אחסון
       </h2>
 
       {/* Hosting package card */}
-      <div className="bg-white rounded-[27px] px-4 md:px-[28px] py-px shadow-sm min-h-[270px] h-auto flex flex-col">
-        <div className="flex flex-col gap-[41px] items-stretch flex-1 py-6">
+      <div className="bg-white rounded-[27px] px-4 md:px-[28px] py-px shadow-sm flex flex-col" style={{ minHeight: "clamp(200px, 25vh, 270px)" }}>
+        <div className="flex flex-col items-stretch flex-1 py-[clamp(14px,2.2vh,24px)]" style={{ gap: "clamp(20px, 3.8vh, 41px)" }}>
           {/* Card top row */}
           <div className="flex items-center gap-4">
             {/* Plan name */}

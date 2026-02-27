@@ -55,7 +55,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
           <span
             className="size-[28px] md:size-[32px] rounded-[5px] p-[4px] flex items-center justify-center bg-badge-bg"
           >
-            <img src={ICON_INFO} alt="" className="size-[16px] md:size-[16px] object-contain" />
+            <img src={ICON_INFO} alt="" className="size-[16px] md:size-[16px] md:h-[14px] md:w-[7px] object-contain" />
           </span>
           <span className="font-polin text-[13px] md:text-[14px] text-navy hidden md:inline">מרכז המידע</span>
         </button>
