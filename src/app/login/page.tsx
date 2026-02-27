@@ -3,7 +3,7 @@ import { GOOGLE_ICON } from "@/lib/assets";
 export default function LoginPage() {
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-[11vh]"
+      className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-[5.5vh]"
       style={{
         background: [
           "radial-gradient(ellipse 750px 700px at 8% 58%, rgba(70, 140, 255, 0.65) 0%, rgba(20, 80, 255, 0.25) 45%, transparent 70%)",
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
       {/* Glass card */}
       <div
-        className="relative z-10 rounded-[50px] px-[31px] py-10 flex flex-col items-center w-full max-w-[460px] mx-4"
+        className="relative z-10 rounded-[50px] px-[45px] py-10 flex flex-col items-center w-full max-w-[520px] mx-4"
         style={{
           background: "rgba(255,255,255,0.02)",
           backdropFilter: "blur(20px)",
@@ -55,7 +55,7 @@ export default function LoginPage() {
         </p>
 
         {/* Email input */}
-        <div className="w-full mb-3">
+        <div className="w-full mb-5 mr-1 ml-2">
           <input
             type="text"
             inputMode="email"
@@ -63,7 +63,7 @@ export default function LoginPage() {
             placeholder='דוא"ל'
             className="w-full outline-none text-right placeholder-white/40"
             style={{
-              height: "66px",
+              height: "55px",
               borderRadius: "7px",
               padding: "22px 25px",
               background: "rgba(255,255,255,0.05)",
@@ -83,7 +83,7 @@ export default function LoginPage() {
             placeholder="סיסמא"
             className="w-full outline-none text-right placeholder-white/40"
             style={{
-              height: "66px",
+              height: "55px",
               borderRadius: "7px",
               padding: "22px 25px",
               background: "rgba(255,255,255,0.05)",
