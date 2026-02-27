@@ -44,7 +44,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
   }, [profileOpen, notifOpen]);
 
   return (
-    <header className="flex items-center justify-end h-[6vh] px-[2vh] md:px-[3vh] gap-[׳vh] md:gap-[4vh] w-full mt-[1.5vh]">
+    <header className="flex items-center justify-end h-[60px] md:h-[79px] px-4 md:px-[54px] gap-3 md:gap-[50px] w-full mt-2 md:mt-[1.5vh]">
       {/* User section */}
 
       <div className="flex items-center gap-[6px]">

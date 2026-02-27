@@ -27,8 +27,8 @@ export default function DashboardPage() {
           className="w-[52px] h-[40px] object-contain flex-shrink-0"
         />
         <h1
-          className="font-polin text-[#001c51]"
-          style={{ fontSize: "34px", lineHeight: 1.1, paddingRight: "10px", paddingBottom: "6px" }}
+          className="font-polin text-[#001c51] text-[22px] sm:text-[28px] md:text-[34px]"
+          style={{ lineHeight: 1.1, paddingRight: "10px", paddingBottom: "6px" }}
         >
           בוקר טוב,{" "}
           <span className="text-[#006eff] font-extrabold ">אלדד</span>
@@ -44,7 +44,7 @@ export default function DashboardPage() {
       </h2>
 
       {/* Hosting package card */}
-      <div className="bg-white rounded-[27px] px-4 md:px-[28px] py-px shadow-sm h-[270px] flex flex-col">
+      <div className="bg-white rounded-[27px] px-4 md:px-[28px] py-px shadow-sm min-h-[270px] h-auto flex flex-col">
         <div className="flex flex-col gap-[41px] items-stretch flex-1 py-6">
           {/* Card top row */}
           <div className="flex items-center gap-4">
@@ -52,7 +52,7 @@ export default function DashboardPage() {
             <span className="font-extrabold text-[#001c52] text-[22px]">גוניור</span>
 
             {/* Badges */}
-            <div className="flex items-center gap-[18px]">
+            <div className="flex flex-wrap items-center gap-3 md:gap-[18px]">
               <Badge>
                 אחסון וורדפרס
                 <img src={LOGO_WORDPRESS} alt="WordPress" className="w-4 h-4 object-contain" />
@@ -86,7 +86,7 @@ export default function DashboardPage() {
           />
 
           {/* Stats row — horizontal inline: value badge + /quota + label */}
-          <div className="flex gap-[15px] items-center justify-end flex-wrap">
+          <div className="flex gap-2 md:gap-[15px] items-center justify-end flex-wrap">
             {stats.map((stat) => (
               <div key={stat.label} className="flex gap-[7px] items-center justify-center">
                 <span className="font-polin text-[18px] text-[#717171]">{stat.label}</span>
@@ -103,7 +103,7 @@ export default function DashboardPage() {
         </div>
 
         {/* לפרטי התכנית — centered footer with top border */}
-        <div className="border-t border-l border-r border-[#b2b2b2] flex gap-[50px] items-center justify-center px-[30px] py-[8px] rounded-tl-[7px] rounded-tr-[7px] w-fit mx-auto">
+        <div className="border-t border-l border-r border-[#b2b2b2] flex gap-4 sm:gap-[50px] items-center justify-center px-[30px] py-[8px] rounded-tl-[7px] rounded-tr-[7px] w-fit mx-auto">
           <button className="flex items-center gap-3 font-polin text-[14px] text-[#8e8e8e] hover:underline">
             לפרטי התכנית
             <img src={ICON_PLAN_ARROW} alt="" className="w-2 h-2 object-contain rotate-90" />

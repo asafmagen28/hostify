@@ -21,14 +21,14 @@ export default function DashboardLayout({
       <img
         src={BG_ELLIPSE_TOP}
         alt=""
-        className="absolute pointer-events-none select-none"
-        style={{ top: 0, right: 0, width: "260px", zIndex: 0, opacity: 0.9 }}
+        className="absolute pointer-events-none select-none w-[140px] sm:w-[200px] md:w-[260px]"
+        style={{ top: 0, right: 0, zIndex: 0, opacity: 0.9 }}
       />
       <img
         src={BG_ELLIPSE_BOTTOM}
         alt=""
-        className="absolute pointer-events-none select-none"
-        style={{ bottom: 0, right: "60px", width: "320px", zIndex: 0, opacity: 0.8 }}
+        className="absolute pointer-events-none select-none w-[160px] sm:w-[220px] md:w-[320px]"
+        style={{ bottom: 0, right: "60px", zIndex: 0, opacity: 0.8 }}
       />
 
       {/* Sidebar — static on desktop, overlay on mobile */}

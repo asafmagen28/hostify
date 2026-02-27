@@ -60,16 +60,16 @@ export default function LoginPage() {
       >
         {/* Heading */}
         <h1
-          className="text-white font-extrabold text-center mb-2"
-          style={{ fontSize: "50px", lineHeight: 1.15, fontFamily: "var(--font-polin)" }}
+          className="text-white font-extrabold text-center mb-2 text-[32px] sm:text-[42px] md:text-[50px]"
+          style={{ lineHeight: 1.15, fontFamily: "var(--font-polin)" }}
         >
           שמחים שחזרת!
         </h1>
 
         {/* Subtitle */}
         <p
-          className="text-white/80 text-center mb-10"
-          style={{ fontSize: "22px", fontFamily: "var(--font-polin)" }}
+          className="text-white/80 text-center mb-10 text-[16px] sm:text-[20px] md:text-[22px]"
+          style={{ fontFamily: "var(--font-polin)" }}
         >
           התחברות ללקוחות רשומים
         </p>
@@ -171,9 +171,8 @@ export default function LoginPage() {
 
         {/* Google sign-in */}
         <button
-          className="flex items-center justify-center font-medium text-[16px] transition-colors hover:opacity-90 mx-auto"
+          className="flex items-center justify-center font-medium text-[16px] transition-colors hover:opacity-90 mx-auto w-full max-w-[282px]"
           style={{
-            width: "282px",
             height: "53px",
             borderRadius: "6px",
             background: "white",

@@ -32,8 +32,8 @@ export default function NotificationsMenu({ onClose }: NotificationsMenuProps) {
       {ITEMS.map((item, i) => (
         <div key={i}>
           <div className="flex justify-end items-start gap-[12px] px-[24px] py-[14px]">
+            <img src={NOTIF_INFO_ICON} alt="" className="size-[23.625px] shrink-0 mt-[8px] object-contain" />
             <p className="font-polin text-[12px] text-black text-right w-[348px]">{item.text}</p>
-            <img src={NOTIF_INFO_ICON} alt="" className="size-[23.625px] shrink-0 mt-[2px] object-contain" />
           </div>
           {i < ITEMS.length - 1 && <hr className="border-t border-[#e5e7eb] mx-[24px]" />}
         </div>

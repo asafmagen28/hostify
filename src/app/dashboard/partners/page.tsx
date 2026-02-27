@@ -8,22 +8,22 @@ export default function PartnersPage() {
   if (!isActive) {
     return (
       <div className="flex items-center justify-center min-h-full p-8">
-        <div className="bg-white rounded-[35px] px-[140px] py-[58px] flex items-center justify-center">
-          <div className="flex flex-col gap-[35px] items-center w-[615px]">
+        <div className="bg-white rounded-[35px] px-6 sm:px-[60px] lg:px-[140px] py-8 lg:py-[58px] flex items-center justify-center w-full">
+          <div className="flex flex-col gap-[35px] items-center w-full max-w-[615px]">
             <p className="font-extrabold text-[34px] text-[#006eff] text-center leading-normal">
               קבלו תשלום על הפניית לקוחות חדשים!
             </p>
             <p className="font-polin text-[20px] text-[#001c52] text-center leading-normal">
               הרוויחו 10% עמלה מכל תשלום המתבצע על ידי הלקוחות שאתם מפנים
             </p>
-            <div className="flex gap-[23px] items-center">
+            <div className="flex flex-col sm:flex-row gap-[23px] items-center">
               <button
                 onClick={() => setIsActive(true)}
                 className="btn-primary h-[43px] px-[20px] rounded-[7px] font-polin text-[18px] text-white whitespace-nowrap"
               >
                 הפעלת חשבון שותפים
               </button>
-              <button className="border border-[#a4a4a4] h-[43px] px-[20px] w-[205px] rounded-[7px] font-polin text-[18px] text-[#006eff]">
+              <button className="border border-[#a4a4a4] h-[43px] px-[20px] w-full sm:w-auto rounded-[7px] font-polin text-[18px] text-[#006eff]">
                 מידע נוסף
               </button>
             </div>
@@ -47,14 +47,14 @@ export default function PartnersPage() {
 
       {/* Page title */}
       <h1
-        className="text-[#006eff] font-polin-bold mb-8"
-        style={{ fontSize: "50px", lineHeight: 1.1 }}
+        className="text-[#006eff] font-polin-bold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]"
+        style={{ lineHeight: 1.1 }}
       >
         חשבון שותפים
       </h1>
 
       {/* Top 3 stat cards */}
-      <div className="flex items-stretch gap-5 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
         {/* Clicks stat — dark navy */}
         <StatCard
           value="1,250"
@@ -100,11 +100,11 @@ export default function PartnersPage() {
       </div>
 
       {/* Bottom panels */}
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Donut chart panel */}
         <div
-          className="bg-white p-7 shadow-sm"
-          style={{ height: "411px", borderRadius: "27px" }}
+          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px]"
+          style={{ borderRadius: "27px" }}
         >
           <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-6">אנליטיקות</h3>
           <div className="flex items-center justify-center gap-8">
@@ -143,8 +143,8 @@ export default function PartnersPage() {
 
         {/* Bar chart panel */}
         <div
-          className="bg-white p-7 shadow-sm"
-          style={{ height: "411px", borderRadius: "27px" }}
+          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px]"
+          style={{ borderRadius: "27px" }}
         >
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-polin-bold text-[22px] text-[#001c52]">פעילות</h3>
@@ -192,7 +192,7 @@ export default function PartnersPage() {
 
         {/* Revenue panel */}
         <div
-          className="bg-white p-7 shadow-sm flex flex-col"
+          className="bg-white p-7 shadow-sm flex flex-col min-h-[300px] lg:h-[411px]"
           style={{ borderRadius: "27px" }}
         >
           <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-2">דשבורד רווחים</h3>
@@ -222,24 +222,24 @@ export default function PartnersPage() {
       <div className="mt-8">
         <div className="font-polin-bold text-[#001c52] text-[16px] mb-3">קישור השותפים שלך</div>
         <div
-          className="flex items-center px-5"
+          className="flex items-center px-5 w-full"
           style={{
             background: "white",
-            height: "125px",
+            height: "80px",
             borderRadius: "7px",
-            width: "1452px",
           }}
         >
           <div
-            className="flex items-center px-5 font-polin text-[#001c52] opacity-40 text-[15px]"
+            className="flex items-center px-5 font-polin text-[#001c52] opacity-40 text-[15px] w-full overflow-hidden"
             style={{
               border: "1px solid #cacaca",
-              height: "75px",
+              height: "50px",
               borderRadius: "7px",
-              width: "1392px",
             }}
           >
-            https://hostify.co.il/ref/eldad-xxxxxxxxxxxxxxxxx
+            <span className="truncate w-full text-right">
+              https://hostify.co.il/ref/eldad-xxxxxxxxxxxxxxxxx
+            </span>
           </div>
         </div>
       </div>
@@ -264,8 +264,8 @@ function StatCard({
 }) {
   return (
     <div
-      className="flex-1 p-6 flex flex-col gap-3"
-      style={{ background: bg, height: "191px", borderRadius: "27px", border }}
+      className="p-6 flex flex-col gap-3 min-h-[140px] lg:h-[191px]"
+      style={{ background: bg, borderRadius: "27px", border }}
     >
       <div className="flex items-center justify-between">
         {icon}
