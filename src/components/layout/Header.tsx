@@ -100,7 +100,6 @@ export default function Header({ onMenuOpen }: HeaderProps) {
             <div className="size-[36px] md:size-[40px] rounded-full overflow-hidden">
               <img src={USER_AVATAR} alt="eldad elhadad" className="w-full h-full object-cover" />
             </div>
-            {profileOpen && <ProfileMenu onClose={() => setProfileOpen(false)} />}
           </div>
 
           {/* Name + username — hidden on mobile */}
@@ -116,6 +115,7 @@ export default function Header({ onMenuOpen }: HeaderProps) {
             className={`size-[8px] object-contain opacity-50 hidden md:block transition-transform duration-200 ${profileOpen ? "rotate-90" : "rotate-0"}`}
           />
         </button>
+        {profileOpen && <ProfileMenu onClose={() => setProfileOpen(false)} />}
       </div>
 
       {/* Hamburger — mobile only, last in DOM → leftmost in RTL */}

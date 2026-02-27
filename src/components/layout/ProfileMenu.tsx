@@ -23,7 +23,7 @@ interface ProfileMenuProps {
 export default function ProfileMenu({ onClose }: ProfileMenuProps) {
   return (
     <div
-      className="absolute top-full left-1/2 -translate-x-[80%] mt-2 z-50 w-[208px] bg-white rounded-[19px] shadow-lg py-[24px] px-[14px]"
+      className="absolute top-full right-0 mt-2 z-50 w-[208px] bg-white rounded-[19px] shadow-lg py-[24px] px-[14px]"
       role="menu"
     >
       <ul className="flex flex-col gap-[25px]">

@@ -53,11 +53,16 @@ src/
     ManageMenu.tsx
     QuickActionsMenu.tsx
   lib/
-    assets.ts                   # All Figma image URLs (expire every 7 days)
+    assets.ts                   # All asset paths → /public/assets/ (local SVGs)
 ```
 
 ### Figma assets (`src/lib/assets.ts`)
-All images are loaded directly from Figma CDN URLs. They expire after ~7 days and must be refreshed via the Figma MCP (`nlH8fv7PUpD3nnAgLbQDF3`). Never inline asset URLs in components — import from `assets.ts`.
+All images are stored locally as SVGs in `public/assets/` — no expiry. Never inline asset paths in components — always import from `assets.ts`.
+
+To refresh assets when Figma designs change:
+```bash
+node scripts/download-assets.mjs
+```
 
 ### Pixel-perfect design tokens
 - Button gradient: `linear-gradient(99.7deg, #006eff 0%, #004299 100%)` — use `.btn-primary` class.

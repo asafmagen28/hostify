@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 536.763 262.139" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Chart Lines">
+<line id="Line 7" x1="0.637199" y1="261.505" x2="536.126" y2="261.505" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round"/>
+<line id="Line 6" x1="0.63472" y1="218.222" x2="536.124" y2="218.222" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round" stroke-dasharray="3.38 5.92"/>
+<line id="Line 5" x1="0.636373" y1="174.757" x2="536.125" y2="174.757" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round" stroke-dasharray="3.38 5.92"/>
+<line id="Line 4" x1="0.637199" y1="131.485" x2="536.126" y2="131.485" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round" stroke-dasharray="3.38 5.92"/>
+<line id="Line 3" x1="0.639265" y1="87.4795" x2="536.128" y2="87.4795" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round" stroke-dasharray="3.38 5.92"/>
+<line id="Line 2" x1="0.635133" y1="43.5861" x2="536.124" y2="43.5861" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round" stroke-dasharray="3.38 5.92"/>
+<line id="Line 1" x1="0.635119" y1="0.634631" x2="536.124" y2="0.634631" stroke="var(--stroke-0, #E5E5EF)" stroke-width="1.26926" stroke-linecap="round" stroke-dasharray="3.38 5.92"/>
+</g>
+</svg>

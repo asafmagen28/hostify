@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="prohibition 1" clip-path="url(#clip0_0_47)">
+<path id="Vector" d="M10 0C4.50391 0 0 4.50391 0 10C0 15.4961 4.50391 20 10 20C15.4961 20 20 15.4961 20 10C20 4.50391 15.4961 0 10 0ZM2.38281 10C2.38281 5.80465 5.80465 2.38281 10 2.38281C11.582 2.38281 13.1055 2.87496 14.4062 3.80074L10 8.20699L3.80082 14.4062C2.87496 13.1054 2.38281 11.582 2.38281 10ZM10 17.6172C8.41801 17.6172 6.89449 17.125 5.59375 16.1992L16.1992 5.59371C17.125 6.89449 17.6172 8.41793 17.6172 10C17.6172 14.1953 14.1954 17.6172 10 17.6172Z" fill="var(--fill-0, #FF3636)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_47">
+<rect width="20" height="20" fill="white"/>
+</clipPath>
+</defs>
+</svg>
