@@ -26,15 +26,15 @@ export default function PermissionsPage() {
   return (
     <div>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 font-polin text-[14px] text-[#001c51]/50 mb-3">
-        <a href="/dashboard" className="hover:text-[#006eff] transition-colors">ראשי</a>
+      <div className="flex items-center gap-2 font-polin text-[14px] text-navy/50 mb-3">
+        <a href="/dashboard" className="hover:text-primary transition-colors">ראשי</a>
         <span>/</span>
-        <span className="font-extrabold text-[#006eff]">הרשאות</span>
+        <span className="font-extrabold text-primary">הרשאות</span>
       </div>
 
       {/* Page title */}
       <h1
-        className="text-[#006eff] font-extrabold mb-4 text-[30px] sm:text-[40px] lg:text-[50px]"
+        className="text-primary font-extrabold mb-4 text-[30px] sm:text-[40px] lg:text-[50px]"
         style={{ lineHeight: 1.1 }}
       >
         מורשי גישה לחשבון
@@ -47,12 +47,10 @@ export default function PermissionsPage() {
 
       {/* Invite button */}
       <button
-        className="flex items-center justify-center gap-2 text-white font-polin text-[18px] mb-10 transition-opacity hover:opacity-90 w-full sm:w-auto sm:min-w-[187px]"
+        className="btn-primary flex items-center justify-center gap-2 text-white font-polin text-[18px] mb-10 transition-opacity hover:opacity-90 w-full sm:w-auto sm:min-w-[187px] rounded-[7px]"
         style={{
-          background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
           height: "52px",
           padding: "8px 20px",
-          borderRadius: "7px",
         }}
       >
         הזמנת אנשים
@@ -68,26 +66,26 @@ export default function PermissionsPage() {
               <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
             </div>
             <div>
-              <div className="font-extrabold text-[15px] text-[#001c52]">{user.name}</div>
-              <div className="font-polin text-[14px] text-[#001c52] opacity-60">{user.email}</div>
+              <div className="font-extrabold text-[15px] text-navy">{user.name}</div>
+              <div className="font-polin text-[14px] text-navy opacity-60">{user.email}</div>
             </div>
           </div>
 
           {/* Col 2: Last login — stacked */}
           <div className="w-1/2 sm:flex-1 flex flex-col gap-0.5">
-            <span className="font-extrabold text-[15px] text-[#001c52]">מועד התחברות אחרון</span>
-            <span className="font-polin text-[15px] text-[#001c52]">{user.lastLogin}</span>
+            <span className="font-extrabold text-[15px] text-navy">מועד התחברות אחרון</span>
+            <span className="font-polin text-[15px] text-navy">{user.lastLogin}</span>
           </div>
 
           {/* Col 3: Permission — stacked */}
           <div className="w-1/2 sm:flex-1 flex flex-col gap-0.5">
-            <span className="font-extrabold text-[15px] text-[#001c52]">הרשאת גישה:</span>
-            <span className="font-polin text-[15px] text-[#001c52]">{user.permission}</span>
+            <span className="font-extrabold text-[15px] text-navy">הרשאת גישה:</span>
+            <span className="font-polin text-[15px] text-navy">{user.permission}</span>
           </div>
 
           {/* Col 4 (leftmost): Status */}
           <div className="w-full sm:flex-1 flex sm:justify-end">
-            <div className="px-4 py-2 font-extrabold text-[14px] text-[#001c52] opacity-60">
+            <div className="px-4 py-2 font-extrabold text-[14px] text-navy opacity-60">
               {user.status}
             </div>
           </div>
@@ -96,7 +94,7 @@ export default function PermissionsPage() {
       ))}
 
       {/* Footnote */}
-      <p className="font-polin text-[18px] text-[#001c51]/50 mt-4">
+      <p className="font-polin text-[18px] text-navy/50 mt-4">
         • לבעל החשבון תמיד יש הרשאות מלאות
       </p>
     </div>

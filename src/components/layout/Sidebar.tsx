@@ -52,7 +52,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Mobile backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          className="fixed inset-0 bg-black/50 z-50 md:hidden"
           onClick={onClose}
           aria-hidden="true"
         />
@@ -60,12 +60,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
       <aside
         className={`
-          fixed inset-y-0 right-0 w-[280px] z-50 flex flex-col
+          fixed inset-y-0 right-0 w-[280px] z-[60] flex flex-col bg-navy
           transition-transform duration-300 ease-in-out
           md:relative md:translate-x-0 md:flex-shrink-0 md:z-20
           ${isOpen ? "translate-x-0" : "translate-x-full"}
         `}
-        style={{ minHeight: "100vh", backgroundColor: "#001c51" }}
+        style={{ minHeight: "100vh" }}
       >
         {/* Logo + close button */}
         <div className="px-6 pt-8 pb-6 flex items-center justify-between">
@@ -112,7 +112,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </span>
                 {/* Label */}
                 <span
-                  className={`text-[17px] font ${isActive ? "text-white" : "text-white/70"
+                  className={`text-[17px] font-polin ${isActive ? "text-white" : "text-white/70"
                     }`}
                 >
                   {item.label}
@@ -174,7 +174,7 @@ function HostifyLogo() {
       <HostifyHIcon />
       <span
         className="text-white font-extrabold text-[26px] tracking-wide"
-        style={{ fontFamily: "var(--font-hebrew)" }}
+        style={{ fontFamily: "var(--font-polin)" }}
       >
         ostify
       </span>

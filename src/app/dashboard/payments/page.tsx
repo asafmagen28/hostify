@@ -8,14 +8,14 @@ export default function PaymentsPage() {
   return (
     <div>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 font-polin text-[14px] text-[#001c51]/50 mb-3">
-        <a href="/dashboard" className="hover:text-[#006eff] transition-colors">ראשי</a>
+      <div className="flex items-center gap-2 font-polin text-[14px] text-navy/50 mb-3">
+        <a href="/dashboard" className="hover:text-primary transition-colors">ראשי</a>
         <span>/</span>
-        <span className="font-extrabold text-[#006eff]">תשלומים</span>
+        <span className="font-extrabold text-primary">תשלומים</span>
       </div>
 
       {/* Page title */}
-      <h1 className="text-[#006eff] font-extrabold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]" style={{ lineHeight: 1.1 }}>
+      <h1 className="text-primary font-extrabold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]" style={{ lineHeight: 1.1 }}>
         תשלומים
       </h1>
 
@@ -27,7 +27,7 @@ export default function PaymentsPage() {
           style={{
             borderRadius: "35px",
             minHeight: "260px",
-            background: "linear-gradient(178.38deg, #006eff 13.491%, #001c52 109.75%)",
+            background: "linear-gradient(178.38deg, #006eff 13.491%, #001c51 109.75%)",
           }}
         >
           {/* Card mask overlay (texture/glare from Figma) */}
@@ -51,7 +51,7 @@ export default function PaymentsPage() {
                 *לורם איפסום דולור סיט אמט איבן לורם
               </p>
               <button
-                className="font-polin text-[18px] text-[#006eff] transition-opacity hover:opacity-90"
+                className="font-polin text-[18px] text-primary transition-opacity hover:opacity-90"
                 style={{
                   background: "white",
                   height: "43px",
@@ -108,20 +108,18 @@ export default function PaymentsPage() {
           style={{ borderRadius: "35px", minHeight: "220px", padding: "28px" }}
         >
           <div className="flex flex-col gap-[35px] items-center w-full max-w-[369px]">
-            <p className="font-polin text-[22px] text-[#001c52] text-center">
+            <p className="font-polin text-[22px] text-navy text-center">
               יש לך{" "}
-              <span className="font-polin-bold text-[#006eff]">2 דרישות תשלום</span>{" "}
+              <span className="font-polin font-extrabold text-primary">2 דרישות תשלום</span>{" "}
               בסך של{" "}
-              <span className="font-polin-bold text-[#006eff]">₪350</span>{" "}
+              <span className="font-polin font-extrabold text-primary">₪350</span>{" "}
               לתשלום
             </p>
             <button
-              className="text-white font-polin text-[18px] transition-opacity hover:opacity-90"
+              className="btn-primary text-white font-polin text-[18px] transition-opacity hover:opacity-90 rounded-[7px]"
               style={{
-                background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
                 height: "43px",
                 padding: "8px 20px",
-                borderRadius: "7px",
               }}
             >
               לתשלום היתרות בחשבון
@@ -137,20 +135,18 @@ export default function PaymentsPage() {
       >
         <div className="flex items-start justify-between mb-6">
           <button
-            className="text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-[15px]"
+            className="btn-primary text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-[15px] rounded-[7px]"
             style={{
-              background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
               height: "43px",
               padding: "8px 20px",
-              borderRadius: "7px",
             }}
           >
             <img src={ICON_PENCIL} alt="" className="w-[18px] h-[18px] object-contain" />
             עריכת פרטים
           </button>
           <div className="flex flex-col gap-[20px] items-end text-right">
-            <h3 className="font-polin-bold text-[22px] text-[#001c52]">פרטים אישיים</h3>
-            <p className="font-polin text-[16px] text-[#001c52] opacity-50">החשבוניות שלך יונפקו עם הפרטים הבאים:</p>
+            <h3 className="font-polin font-extrabold text-[22px] text-navy">פרטים אישיים</h3>
+            <p className="font-polin text-[16px] text-navy opacity-50">החשבוניות שלך יונפקו עם הפרטים הבאים:</p>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row gap-[23px]">
@@ -164,8 +160,8 @@ export default function PaymentsPage() {
               borderRadius: "15px",
             }}
           >
-            <div className="font-polin text-[14px] text-[#001c52] opacity-60">שם או שם חברה</div>
-            <div className="font-polin-bold text-[20px] text-[#001c52]">עומר מיראן</div>
+            <div className="font-polin text-[14px] text-navy opacity-60">שם או שם חברה</div>
+            <div className="font-polin font-extrabold text-[20px] text-navy">עומר מיראן</div>
           </div>
 
           {/* Address field */}
@@ -178,19 +174,19 @@ export default function PaymentsPage() {
               borderRadius: "15px",
             }}
           >
-            <div className="font-polin text-[14px] text-[#001c52] opacity-60">כתובת</div>
-            <div className="font-polin-bold text-[20px] text-[#001c52]">העמקים 119, רמת גן, ישראל</div>
+            <div className="font-polin text-[14px] text-navy opacity-60">כתובת</div>
+            <div className="font-polin font-extrabold text-[20px] text-navy">העמקים 119, רמת גן, ישראל</div>
           </div>
         </div>
       </div>
 
       {/* Transaction history */}
       <div className="bg-white rounded-[35px] p-7 shadow-sm mt-6">
-        <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-6">היסטוריית עסקאות</h3>
+        <h3 className="font-polin font-extrabold text-[22px] text-navy mb-6">היסטוריית עסקאות</h3>
 
         <div className="overflow-x-auto">
           {/* Table headers */}
-          <div className="flex items-center px-4 mb-3 font-polin-bold text-[16px] text-[#001c52] opacity-50 min-w-[480px]">
+          <div className="flex items-center px-4 mb-3 font-polin font-extrabold text-[16px] text-navy opacity-50 min-w-[480px]">
             <div className="flex-1">תיאור</div>
             <div className="w-36">תאריך</div>
             <div className="w-28 text-right">סכום</div>
@@ -208,9 +204,9 @@ export default function PaymentsPage() {
               key={i}
               className="flex items-center px-4 py-4 rounded-[7px] hover:bg-[#f8fbff] transition-colors min-w-[480px]"
             >
-              <div className="flex-1 font-polin text-[18px] text-[#001c52]">{tx.desc}</div>
-              <div className="w-36 font-polin text-[16px] text-[#001c52] opacity-60">{tx.date}</div>
-              <div className="w-28 text-right font-polin-bold text-[18px] text-[#001c52]">{tx.amount}</div>
+              <div className="flex-1 font-polin text-[18px] text-navy">{tx.desc}</div>
+              <div className="w-36 font-polin text-[16px] text-navy opacity-60">{tx.date}</div>
+              <div className="w-28 text-right font-polin font-extrabold text-[18px] text-navy">{tx.amount}</div>
               <div className="w-28 flex justify-center">
                 <span
                   className="px-3 py-1 rounded-full font-polin text-[14px]"

@@ -10,10 +10,10 @@ export default function PartnersPage() {
       <div className="flex items-start justify-center min-h-full pt-[8%] px-8 pb-8">
         <div className="bg-white rounded-[35px] px-6 sm:px-[60px] lg:px-[140px] py-8 lg:py-[58px] flex items-center justify-center w-full">
           <div className="flex flex-col gap-[35px] items-center w-full max-w-[615px]">
-            <p className="font-extrabold text-[34px] text-[#006eff] text-center leading-normal">
+            <p className="font-extrabold text-[34px] text-primary text-center leading-normal">
               קבלו תשלום על הפניית לקוחות חדשים!
             </p>
-            <p className="font-polin text-[20px] text-[#001c52] text-center leading-normal">
+            <p className="font-polin text-[20px] text-navy text-center leading-normal">
               הרוויחו 10% עמלה מכל תשלום המתבצע על ידי הלקוחות שאתם מפנים
             </p>
             <div className="flex flex-col sm:flex-row gap-[23px] items-center">
@@ -23,11 +23,11 @@ export default function PartnersPage() {
               >
                 הפעלת חשבון שותפים
               </button>
-              <button className="border border-[#a4a4a4] h-[43px] px-[20px] w-full sm:w-auto rounded-[7px] font-polin text-[18px] text-[#006eff]">
+              <button className="border border-[#a4a4a4] h-[43px] px-[20px] w-full sm:w-auto rounded-[7px] font-polin text-[18px] text-primary">
                 מידע נוסף
               </button>
             </div>
-            <p className="font-polin text-[16px] text-[#001c52] text-center leading-[22px]">
+            <p className="font-polin text-[16px] text-navy text-center leading-[22px]">
               לורם איפסום דולור סיט אמט בלינדו תצטריק סת קוויז יבש, וק. וענוף ושבעגט בלינך לכימפו, דול, לפתיעם שעותלשך מנת. קונסקטורר
             </p>
           </div>
@@ -39,15 +39,15 @@ export default function PartnersPage() {
   return (
     <div>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 font-polin text-[14px] text-[#001c51]/50 mb-3">
-        <a href="/dashboard" className="hover:text-[#006eff] transition-colors">ראשי</a>
+      <div className="flex items-center gap-2 font-polin text-[14px] text-navy/50 mb-3">
+        <a href="/dashboard" className="hover:text-primary transition-colors">ראשי</a>
         <span>/</span>
-        <span className="font-polin-bold text-[#001c51]">חשבון שותפים</span>
+        <span className="font-extrabold text-primary">חשבון שותפים</span>
       </div>
 
       {/* Page title */}
       <h1
-        className="text-[#006eff] font-polin-bold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]"
+        className="text-primary font-polin font-extrabold mb-8 text-[30px] sm:text-[40px] lg:text-[50px]"
         style={{ lineHeight: 1.1 }}
       >
         חשבון שותפים
@@ -59,7 +59,7 @@ export default function PartnersPage() {
         <StatCard
           value="1,250"
           label="קליקים על קישור"
-          bg="linear-gradient(135deg, #001c52 0%, #001c52 100%)"
+          bg="linear-gradient(135deg, #001c51 0%, #001c51 100%)"
           textColor="white"
           border="1px solid rgba(255,255,255,0.15)"
           icon={
@@ -90,9 +90,9 @@ export default function PartnersPage() {
           value="15.43%"
           label="אחוזי ההמרה שלך"
           bg="white"
-          textColor="#001c52"
+          textColor="#001c51"
           icon={
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#001c52" strokeWidth="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#001c51" strokeWidth="2">
               <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
             </svg>
           }
@@ -103,10 +103,9 @@ export default function PartnersPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Donut chart panel */}
         <div
-          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px]"
-          style={{ borderRadius: "27px" }}
+          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px] rounded-[27px]"
         >
-          <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-6">אנליטיקות</h3>
+          <h3 className="font-polin font-extrabold text-[22px] text-navy mb-6">אנליטיקות</h3>
           <div className="flex items-center justify-center gap-8">
             {/* Donut chart placeholder */}
             <div className="relative w-36 h-36">
@@ -123,19 +122,19 @@ export default function PartnersPage() {
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-polin-bold text-[#001c52] text-[18px]">₪7,656</span>
+                <span className="font-polin font-extrabold text-navy text-[18px]">₪7,656</span>
               </div>
             </div>
 
             {/* Legend */}
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#006eff]" />
-                <span className="font-polin text-[#001c52] text-[14px]">₪4,976 — 65%</span>
+                <div className="w-3 h-3 rounded-full bg-primary" />
+                <span className="font-polin text-navy text-[14px]">₪4,976 — 65%</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#e1f0ff]" />
-                <span className="font-polin text-[#001c52] text-[14px]">₪2,680 — 35%</span>
+                <div className="w-3 h-3 rounded-full bg-badge-bg" />
+                <span className="font-polin text-navy text-[14px]">₪2,680 — 35%</span>
               </div>
             </div>
           </div>
@@ -143,19 +142,18 @@ export default function PartnersPage() {
 
         {/* Bar chart panel */}
         <div
-          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px]"
-          style={{ borderRadius: "27px" }}
+          className="bg-white p-7 shadow-sm min-h-[300px] lg:h-[411px] rounded-[27px]"
         >
           <div className="flex items-center justify-between mb-6">
-            <h3 className="font-polin-bold text-[22px] text-[#001c52]">פעילות</h3>
+            <h3 className="font-polin font-extrabold text-[22px] text-navy">פעילות</h3>
             <div className="flex gap-2">
               {["יומי", "שבועי", "חודשי"].map((tab) => (
                 <button
                   key={tab}
                   className={`px-3 py-1 rounded-full font-polin text-[13px] transition-colors ${
                     tab === "שבועי"
-                      ? "bg-[#006eff] text-white"
-                      : "text-[#001c51]/50 hover:text-[#001c51]"
+                      ? "bg-primary text-white"
+                      : "text-navy/50 hover:text-navy"
                   }`}
                 >
                   {tab}
@@ -184,7 +182,7 @@ export default function PartnersPage() {
                     opacity: h === 100 ? 1 : 0.4 + (h / 200),
                   }}
                 />
-                <span className="font-polin text-[11px] text-[#001c51]/50">{day}</span>
+                <span className="font-polin text-[11px] text-navy/50">{day}</span>
               </div>
             ))}
           </div>
@@ -192,26 +190,21 @@ export default function PartnersPage() {
 
         {/* Revenue panel */}
         <div
-          className="bg-white p-7 shadow-sm flex flex-col min-h-[300px] lg:h-[411px]"
-          style={{ borderRadius: "27px" }}
+          className="bg-white p-7 shadow-sm flex flex-col min-h-[300px] lg:h-[411px] rounded-[27px]"
         >
-          <h3 className="font-polin-bold text-[22px] text-[#001c52] mb-2">דשבורד רווחים</h3>
+          <h3 className="font-polin font-extrabold text-[22px] text-navy mb-2">דשבורד רווחים</h3>
           <div className="flex-1 flex flex-col justify-center gap-3">
             <div>
-              <div className="font-polin-bold text-[#001c52] text-[28px]">₪1256</div>
-              <div className="font-polin text-[#001c52] opacity-50 text-[13px] mt-1">עמלות זמניות שצברת</div>
+              <div className="font-polin font-extrabold text-navy text-[28px]">₪1256</div>
+              <div className="font-polin text-navy opacity-50 text-[13px] mt-1">עמלות זמניות שצברת</div>
             </div>
             <div>
-              <div className="font-polin-bold text-[#001c52] text-[28px]">₪5400</div>
-              <div className="font-polin text-[#001c52] opacity-50 text-[13px] mt-1">סך כל המשיכות שלך</div>
+              <div className="font-polin font-extrabold text-navy text-[28px]">₪5400</div>
+              <div className="font-polin text-navy opacity-50 text-[13px] mt-1">סך כל המשיכות שלך</div>
             </div>
           </div>
           <button
-            className="w-full py-3 text-white font-polin text-[18px] mt-4 transition-opacity hover:opacity-90"
-            style={{
-              background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
-              borderRadius: "7px",
-            }}
+            className="btn-primary w-full py-3 text-white font-polin text-[18px] mt-4 transition-opacity hover:opacity-90 rounded-[7px]"
           >
             בקשת משיכה
           </button>
@@ -220,7 +213,7 @@ export default function PartnersPage() {
 
       {/* Referral link */}
       <div className="mt-8">
-        <div className="font-polin-bold text-[#001c52] text-[16px] mb-3">קישור השותפים שלך</div>
+        <div className="font-polin font-extrabold text-navy text-[16px] mb-3">קישור השותפים שלך</div>
         <div
           className="flex items-center px-5 w-full"
           style={{
@@ -230,7 +223,7 @@ export default function PartnersPage() {
           }}
         >
           <div
-            className="flex items-center px-5 font-polin text-[#001c52] opacity-40 text-[15px] w-full overflow-hidden"
+            className="flex items-center px-5 font-polin text-navy opacity-40 text-[15px] w-full overflow-hidden"
             style={{
               border: "1px solid #cacaca",
               height: "50px",

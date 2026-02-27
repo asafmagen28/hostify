@@ -51,17 +51,17 @@ export default function DashboardPage() {
           className="w-[52px] h-[40px] object-contain flex-shrink-0"
         />
         <h1
-          className="font-polin text-[#001c51] text-[22px] sm:text-[28px] md:text-[34px]"
+          className="font-polin text-navy text-[22px] sm:text-[28px] md:text-[34px]"
           style={{ lineHeight: 1.1, paddingRight: "10px", paddingBottom: "6px" }}
         >
           בוקר טוב,{" "}
-          <span className="text-[#006eff] font-extrabold ">אלדד</span>
+          <span className="text-primary font-extrabold ">אלדד</span>
         </h1>
       </div>
 
       {/* Section title — Noto Sans Hebrew Bold per Figma */}
       <h2
-        className="text-[#006eff] font-bold mb-5 mt-8"
+        className="text-primary font-bold mb-5 mt-8"
         style={{ fontSize: "25px", fontFamily: "var(--font-hebrew)", fontVariationSettings: "'wdth' 100" }}
       >
         חבילות אחסון
@@ -73,7 +73,7 @@ export default function DashboardPage() {
           {/* Card top row */}
           <div className="flex items-center gap-4">
             {/* Plan name */}
-            <span className="font-extrabold text-[#001c52] text-[22px]">גוניור</span>
+            <span className="font-extrabold text-navy text-[22px]">גוניור</span>
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-3 md:gap-[18px]">
@@ -94,10 +94,7 @@ export default function DashboardPage() {
             {/* Manage button */}
             <div className="relative" ref={manageWrapperRef}>
               <button
-                className="flex items-center gap-2 px-[20px] py-[8px] rounded-[7px] text-white font-polin text-[18px] transition-opacity hover:opacity-90 cursor-pointer"
-                style={{
-                  background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
-                }}
+                className="btn-primary flex items-center gap-2 px-[20px] py-[8px] rounded-[7px] text-white font-polin text-[18px] transition-opacity hover:opacity-90 cursor-pointer"
                 onClick={() => setManageOpen((v) => !v)}
                 aria-expanded={manageOpen}
                 aria-haspopup="menu"
@@ -119,12 +116,12 @@ export default function DashboardPage() {
           <div className="flex gap-2 md:gap-[15px] items-center justify-center flex-wrap">
             {stats.map((stat) => (
               <div key={stat.label} className="flex gap-[7px] items-center justify-center">
-                <span className="font-polin text-[18px] text-[#717171]">{stat.label}</span>
+                <span className="font-polin text-[18px] text-muted">{stat.label}</span>
                 {stat.quota && (
                   <span className="font-polin text-[18px] text-[#005492]">{stat.quota}</span>
                 )}
                 <span
-                  className="bg-[#eff6ff] flex items-center justify-center text-[#006eff] font-polin text-[16px] h-[23px] px-[20px] py-[9px] rounded-[7px]"                >
+                  className="bg-content-bg flex items-center justify-center text-primary font-polin text-[16px] h-[23px] px-[20px] py-[9px] rounded-[7px]"                >
                   {stat.value}
                 </span>
               </div>
@@ -134,7 +131,7 @@ export default function DashboardPage() {
 
         {/* לפרטי התכנית — centered footer with top border */}
         <div className="border-t border-l border-r border-[#b2b2b2] flex gap-4 sm:gap-[50px] items-center justify-center px-[30px] py-[8px] rounded-tl-[7px] rounded-tr-[7px] w-fit mx-auto">
-          <button className="flex items-center gap-3 font-polin text-[14px] text-[#8e8e8e] hover:underline">
+          <button className="flex items-center gap-3 font-polin text-[14px] text-muted-alt hover:underline">
             לפרטי התכנית
             <img src={ICON_PLAN_ARROW} alt="" className="w-2 h-2 object-contain rotate-90" />
           </button>
@@ -147,12 +144,10 @@ export default function DashboardPage() {
 function Badge({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="flex items-center gap-1.5 font-polin text-[15px] text-[#006eff] w-[150px]"
+      className="flex items-center gap-1.5 font-polin text-[15px] text-primary w-[150px] bg-badge-bg rounded-[7px]"
       style={{
-        background: "#e1f0ff",
         height: "30px",
-        borderRadius: "7px",
-        padding: "15px",
+        padding: "4px 15px",
       }}
     >
       {children}

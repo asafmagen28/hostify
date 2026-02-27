@@ -23,8 +23,7 @@ export default function LoginPage() {
           <rect x="12" y="2" width="14" height="8" rx="2.5" fill="#006eff" opacity="0.35" />
         </svg>
         <span
-          className="text-white font-extrabold text-[24px] tracking-wide"
-          style={{ fontFamily: "var(--font-polin)" }}
+          className="text-white font-extrabold text-[24px] tracking-wide font-polin"
         >
           ostify
         </span>
@@ -101,7 +100,7 @@ export default function LoginPage() {
         <div className="w-full flex items-center justify-start gap-2 mb-5">
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" className="sr-only peer" />
-            <div className="w-[24px] h-[24px] rounded-[3px] border border-white/25 peer-checked:bg-[#006eff] peer-checked:border-[#006eff] flex items-center justify-center transition-all" />
+            <div className="w-[24px] h-[24px] rounded-[3px] border border-white/25 peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center transition-all" />
             <span className="text-white/80" style={{ fontFamily: "var(--font-polin)", fontSize: "18px" }}>
               זכור אותי
             </span>
@@ -128,7 +127,7 @@ export default function LoginPage() {
             שכחתי סיסמא
           </a>
           <span className="text-white/30">|</span>
-          <a href="#" className="text-[#006eff] font-medium hover:underline" style={{ fontFamily: "var(--font-polin)", fontSize: "18px" }}>
+          <a href="#" className="text-primary font-medium hover:underline" style={{ fontFamily: "var(--font-polin)", fontSize: "18px" }}>
             להרשמה
           </a>
         </div>
@@ -137,7 +136,7 @@ export default function LoginPage() {
         <div className="w-full flex items-center gap-4 mb-5">
           <div className="flex-1 h-px bg-white/30" />
           <span
-            className="flex items-center justify-center text-[#001c51] text-[12px]"
+            className="flex items-center justify-center text-navy text-[12px]"
             style={{
               height: "26px",
               width: "28px",

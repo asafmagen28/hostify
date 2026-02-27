@@ -22,7 +22,7 @@ export default function NotificationsMenu({ onClose }: NotificationsMenuProps) {
       role="menu"
     >
       {/* Title */}
-      <div className="px-[24px] pt-[17px] pb-[10px] text-right font-polin text-[18px] text-[#006eff]">
+      <div className="px-[24px] pt-[17px] pb-[10px] text-right font-polin text-[18px] text-primary">
         הודעות והתראות
       </div>
 

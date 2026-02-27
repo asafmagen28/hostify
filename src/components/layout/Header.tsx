@@ -53,12 +53,11 @@ export default function Header({ onMenuOpen }: HeaderProps) {
           aria-label="מרכז המידע"
         >
           <span
-            className="size-[28px] md:size-[32px] rounded-[5px] p-[4px] flex items-center justify-center"
-            style={{ background: "#e1f0ff" }}
+            className="size-[28px] md:size-[32px] rounded-[5px] p-[4px] flex items-center justify-center bg-badge-bg"
           >
-            <img src={ICON_INFO} alt="" className="size-[16px] md:w-[7px] md:h-[14px] object-contain" />
+            <img src={ICON_INFO} alt="" className="size-[16px] md:size-[16px] object-contain" />
           </span>
-          <span className="font-polin text-[13px] md:text-[14px] text-[#001c52] hidden md:inline">מרכז המידע</span>
+          <span className="font-polin text-[13px] md:text-[14px] text-navy hidden md:inline">מרכז המידע</span>
         </button>
       </div>
 
@@ -73,18 +72,17 @@ export default function Header({ onMenuOpen }: HeaderProps) {
         >
           <div className="relative">
             <span
-              className="size-[28px] md:size-[32px] rounded-[5px] p-[4px] flex items-center justify-center"
-              style={{ background: "#e1f0ff" }}
+              className="size-[28px] md:size-[32px] rounded-[5px] p-[4px] flex items-center justify-center bg-badge-bg"
             >
               <img src={ICON_BELL} alt="" className="size-[14px] md:size-[16px] object-contain" />
             </span>
             {/* Blue notification dot */}
             <span
-              className="absolute -top-[3px] -right-[3px] size-[14px] md:size-[16px] rounded-full bg-[#006eff] border-[2px] border-white"
+              className="absolute -top-[3px] -right-[3px] size-[14px] md:size-[16px] rounded-full bg-primary border-[2px] border-white"
             />
             {notifOpen && <NotificationsMenu onClose={() => setNotifOpen(false)} />}
           </div>
-          <span className="font-polin text-[13px] md:text-[14px] text-[#001c52] hidden md:inline">הודעות והתראות</span>
+          <span className="font-polin text-[13px] md:text-[14px] text-navy hidden md:inline">הודעות והתראות</span>
         </button>
       </div>
 
@@ -107,8 +105,8 @@ export default function Header({ onMenuOpen }: HeaderProps) {
 
           {/* Name + username — hidden on mobile */}
           <div className="text-right hidden md:block">
-            <div className="font-polin-bold text-[13px] md:text-[14px] text-[#001c52] font-extrabold">eldad elhadad</div>
-            <div className="font-polin text-[12px] md:text-[13px] text-[#001c52] opacity-50">@username</div>
+            <div className="font-polin text-[13px] md:text-[14px] text-navy font-extrabold">eldad elhadad</div>
+            <div className="font-polin text-[12px] md:text-[13px] text-navy opacity-50">@username</div>
           </div>
 
           {/* Chevron last → leftmost in RTL — hidden on mobile */}
@@ -126,9 +124,9 @@ export default function Header({ onMenuOpen }: HeaderProps) {
         aria-label="פתח תפריט"
         onClick={onMenuOpen}
       >
-        <span className="block w-[22px] h-[2px] rounded bg-[#001c52]" />
-        <span className="block w-[22px] h-[2px] rounded bg-[#001c52]" />
-        <span className="block w-[22px] h-[2px] rounded bg-[#001c52]" />
+        <span className="block w-[22px] h-[2px] rounded bg-navy" />
+        <span className="block w-[22px] h-[2px] rounded bg-navy" />
+        <span className="block w-[22px] h-[2px] rounded bg-navy" />
       </button>
     </header >
   );

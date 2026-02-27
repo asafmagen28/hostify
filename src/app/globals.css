@@ -21,36 +21,18 @@
 @theme {
   --color-primary: #006eff;
   --color-navy: #001c51;
-  --color-navy-dark: #001c52;
   --color-content-bg: #eff6ff;
   --color-badge-bg: #e1f0ff;
   --color-muted: #717171;
   --color-muted-alt: #8e8e8e;
   --font-hebrew: var(--font-noto-hebrew), 'Noto Sans Hebrew', 'Arial Hebrew', sans-serif;
   --font-polin: 'Polin', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
-  --font-polin-bold: 'Polin', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
-}
-
-:root {
-  --background: #eff6ff;
-  --foreground: #001c52;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-content-bg);
+  color: var(--color-navy);
   font-family: var(--font-hebrew);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Glass card style — NO border (Figma: border rgba(255,255,255,0)) */
-.glass-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 }
 
 /* Sidebar nav active glass highlight */
@@ -78,7 +60,4 @@ input:-webkit-autofill:active {
   background: linear-gradient(99.7deg, #006eff 0%, #004299 100%);
 }
 
-/* Blue gradient used in manage/action buttons */
-.gradient-blue {
-  background: linear-gradient(99.7deg, #006eff 0%, #004299 100%);
-}
+

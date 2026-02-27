@@ -14,8 +14,7 @@ export default function DashboardLayout({
 
   return (
     <div
-      className="flex h-screen overflow-hidden relative"
-      style={{ backgroundColor: "#001c51" }}
+      className="flex h-screen overflow-hidden relative bg-navy"
     >
       {/* Background decorative ellipses */}
       <img
@@ -36,8 +35,7 @@ export default function DashboardLayout({
 
       {/* Main content area — light blue rounded card (margin/rounding only on md+) */}
       <main
-        className="flex-1 md:m-6 md:rounded-[26px] overflow-auto relative z-10 flex flex-col"
-        style={{ backgroundColor: "#eff6ff" }}
+        className="flex-1 md:m-6 md:rounded-[26px] overflow-auto relative z-10 flex flex-col bg-content-bg"
       >
         {/* Header */}
         <Header onMenuOpen={() => setSidebarOpen(true)} />
