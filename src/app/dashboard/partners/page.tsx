@@ -101,20 +101,21 @@ export default function PartnersPage() {
 
       {/* Bottom panels: narrow analytics + wide combined */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-[clamp(300px,22.9vw,440px)_1fr] gap-5 mb-[clamp(12px,2vh,24px)]"
+        className="grid grid-cols-1 lg:grid-cols-[1fr_clamp(300px,22.9vw,440px)] gap-5 mb-[clamp(12px,2vh,24px)]"
       >
-        {/* Analytics panel */}
-        <AnalyticsPanel />
-
         {/* Wide combined card: Activity + Revenue */}
         <div
           className="bg-white rounded-[27px] flex overflow-hidden"
           style={{ minHeight: "clamp(270px,32vh,411px)", maxHeight: "clamp(270px,32vh,411px)" }}
         >
-          <ActivityPanel />
-          <RevenueDivider />
           <RevenuePanel />
+          {/* <RevenueDivider /> */}
+          <ActivityPanel />
+
         </div>
+
+        {/* Analytics panel */}
+        <AnalyticsPanel />
       </div>
 
       {/* Referral link */}
@@ -256,7 +257,7 @@ function AnalyticsPanel() {
         </div>
 
         {/* Legend */}
-        <div className="flex flex-col gap-2 w-full px-2 flex-shrink-0">
+        <div className="flex items-center justify-center gap-6 w-full px-2 flex-shrink-0">
           <div className="flex items-center gap-2">
             <img src={PARTNERS_IDENTIFIER_1} alt="" className="w-4 h-4 flex-shrink-0" />
             <span className="font-polin text-[13px] text-navy">65% לורם</span>
@@ -295,8 +296,7 @@ function ActivityPanel() {
   return (
     <div className="flex-1 p-6 flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 flex-shrink-0">
-        <h3 className="font-polin font-extrabold text-[18px] text-navy">פעילות</h3>
+      <div className="flex items-center justify-center mb-4 flex-shrink-0">
         <div
           className="flex items-center rounded-[12.5px] h-[41px] px-1 gap-1"
           style={{ background: "#e1f0ff", width: "clamp(160px, 10.5vw, 202px)" }}
