@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
 import {
   ICON_SUN,
   LOGO_WORDPRESS,
@@ -5,6 +8,7 @@ import {
   ICON_MANAGE_ARROW,
   ICON_PLAN_ARROW,
 } from "@/lib/assets";
+import ManageMenu from "@/components/layout/ManageMenu";
 
 const stats = [
   { label: "סטטוס מנוי:", value: "פעיל", quota: null },
@@ -17,6 +21,26 @@ const stats = [
 ];
 
 export default function DashboardPage() {
+  const [manageOpen, setManageOpen] = useState(false);
+  const manageWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleMouseDown(e: MouseEvent) {
+      if (manageOpen && manageWrapperRef.current && !manageWrapperRef.current.contains(e.target as Node)) {
+        setManageOpen(false);
+      }
+    }
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setManageOpen(false);
+    }
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [manageOpen]);
+
   return (
     <div>
       {/* Greeting row — sun comes AFTER text in DOM so RTL places it on the left */}
@@ -68,15 +92,21 @@ export default function DashboardPage() {
             <div className="flex-1" />
 
             {/* Manage button */}
-            <button
-              className="flex items-center gap-2 px-[20px] py-[8px] rounded-[7px] text-white font-polin text-[18px] transition-opacity hover:opacity-90"
-              style={{
-                background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
-              }}
-            >
-              ניהול
-              <img src={ICON_MANAGE_ARROW} alt="" className="w-2 h-2 object-contain brightness-0 invert rotate-90" />
-            </button>
+            <div className="relative" ref={manageWrapperRef}>
+              <button
+                className="flex items-center gap-2 px-[20px] py-[8px] rounded-[7px] text-white font-polin text-[18px] transition-opacity hover:opacity-90 cursor-pointer"
+                style={{
+                  background: "linear-gradient(99.7deg, #006eff 0%, #004299 100%)",
+                }}
+                onClick={() => setManageOpen((v) => !v)}
+                aria-expanded={manageOpen}
+                aria-haspopup="menu"
+              >
+                ניהול
+                <img src={ICON_MANAGE_ARROW} alt="" className="w-2 h-2 object-contain brightness-0 invert rotate-90" />
+              </button>
+              {manageOpen && <ManageMenu onClose={() => setManageOpen(false)} />}
+            </div>
           </div>
 
           {/* Divider */}
@@ -86,7 +116,7 @@ export default function DashboardPage() {
           />
 
           {/* Stats row — horizontal inline: value badge + /quota + label */}
-          <div className="flex gap-2 md:gap-[15px] items-center justify-end flex-wrap">
+          <div className="flex gap-2 md:gap-[15px] items-center justify-center flex-wrap">
             {stats.map((stat) => (
               <div key={stat.label} className="flex gap-[7px] items-center justify-center">
                 <span className="font-polin text-[18px] text-[#717171]">{stat.label}</span>

@@ -46,3 +46,9 @@ export const ICON_PROFILE_POWER  = "https://www.figma.com/api/mcp/asset/671cb20a
 
 // === NOTIFICATIONS MENU (63:1789) ===
 export const NOTIF_INFO_ICON = "https://www.figma.com/api/mcp/asset/d5501b5b-ff3b-4a6e-ae39-07803551d838";
+
+// === MANAGE MENU (63:2586) ===
+export const ICON_MANAGE_SERVER  = "https://www.figma.com/api/mcp/asset/1ae5315e-7638-4835-b432-c1f56d57ef81";
+export const ICON_MANAGE_DETAILS = "https://www.figma.com/api/mcp/asset/f652d936-5e40-4e4f-8615-bf23dadc2ca7";
+export const ICON_MANAGE_SWITCH  = "https://www.figma.com/api/mcp/asset/8459183a-377a-402a-adce-4f9dbacffc41";
+export const ICON_MANAGE_CANCEL  = "https://www.figma.com/api/mcp/asset/ef8548f2-17a7-4889-ae96-4f46526e248e";
