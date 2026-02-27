@@ -201,15 +201,15 @@ function StatCard({
       </div>
       
       {/* Text block */}
-      <div className="flex flex-col gap-2 flex-1">
+      <div className="flex flex-col flex-1">
         <div
-          className="font-polin font-extrabold"
-          style={{ color: textColor, fontSize: "clamp(28px, 2.2vw, 42px)" }}
+          className="font-polin "
+          style={{ color: textColor, fontSize: "clamp(28px, 1.5vw, 50px)" }}
         >
           {value}
         </div>
         <div
-          className="font-polin text-[20px]"
+          className="font-polin text-[18px]"
           style={{ color: textColor === "white" ? "rgba(255,255,255,0.7)" : "rgba(0,28,82,0.6)" }}
         >
           {label}
@@ -394,7 +394,7 @@ function RevenuePanel() {
           >
             ₪1256
           </div>
-          <div className="font-polin text-navy/50 text-[13px] mt-1">עמלות זמינות שצברת</div>
+          <div className="font-polin text-[13px] mt-1">עמלות זמינות שצברת</div>
         </div>
         <div>
           <div
@@ -403,7 +403,7 @@ function RevenuePanel() {
           >
             ₪5400
           </div>
-          <div className="font-polin text-navy/50 text-[13px] mt-1">סך כל המשיכות שלך</div>
+          <div className="font-polin text-[13px] mt-1">סך כל המשיכות שלך</div>
         </div>
       </div>
       <button
