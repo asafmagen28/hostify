@@ -71,7 +71,7 @@ export default function HostingCard() {
               </Badge>
               <Badge>
                 Google cloud
-                <Image src={LOGO_GOOGLE_CLOUD} alt="Google Cloud" width={16} height={16} className="object-contain" />
+                <Image src={LOGO_GOOGLE_CLOUD} alt="Google Cloud" width={18} height={16} className="object-contain" />
               </Badge>
             </div>
 
