@@ -387,59 +387,61 @@ function ReferralsTable() {
   const PAGES = [1, 2, 3, 4, 5];
 
   return (
-    <div className="bg-white rounded-[27px] overflow-hidden">
-      {/* Header row */}
-      <div className="grid grid-cols-5 px-[clamp(24px,3.5vw,68px)] py-[clamp(14px,1.8vh,24px)] border-b border-[#f0f0f0]">
-        {TABLE_COLS.map((col) => (
-          <div key={col} className="font-polin font-extrabold text-[18px] text-navy text-right">
-            {col}
-          </div>
-        ))}
-      </div>
-
-      {/* Data rows */}
-      {REFERRALS.map((row, i) => (
-        <div
-          key={i}
-          className="grid grid-cols-5 px-[clamp(24px,3.5vw,68px)] py-[clamp(12px,2.6vh,51px)] border-b border-[#f0f0f0] last:border-b-0"
-        >
-          <div className="font-polin text-[18px] text-black text-right">{row.date}</div>
-          <div className="font-polin text-[18px] text-black text-right">{row.plan}</div>
-          <div className="font-polin text-[18px] text-black text-right" dir="rtl">{row.amount}</div>
-          <div className="font-polin text-[18px] text-black text-right" dir="rtl">{row.commission}</div>
-          <div className="flex items-center justify-end gap-[5px]">
-            <span
-              className="font-polin text-[18px] text-right"
-              style={{ color: row.active ? "#00c444" : "#8b8b8b" }}
-              dir="rtl"
-            >
-              {row.active ? "פעיל" : "לא פעיל"}
-            </span>
-            <div
-              className="shrink-0 rounded-full"
-              style={{
-                width: 9,
-                height: 9,
-                background: row.active ? "#00c444" : "#8b8b8b",
-              }}
-            />
-          </div>
+    <div className="bg-white rounded-[27px] overflow-x-auto">
+      <div className="min-w-[640px]">
+        {/* Header row */}
+        <div className="grid grid-cols-5 px-[clamp(24px,3.5vw,68px)] py-[clamp(14px,1.8vh,24px)] border-b border-[#f0f0f0]">
+          {TABLE_COLS.map((col) => (
+            <div key={col} className="font-polin font-extrabold text-[18px] text-navy text-center">
+              {col}
+            </div>
+          ))}
         </div>
-      ))}
 
-      {/* Pagination */}
-      <div className="flex items-center justify-start gap-[15px] px-[clamp(24px,3.5vw,68px)] py-[clamp(12px,2vh,20px)]">
-        {PAGES.map((p) => (
-          <button
-            key={p}
-            onClick={() => setPage(p)}
-            className="font-polin text-[14px]"
-            style={{ color: page === p ? "#006eff" : "#000" }}
+        {/* Data rows */}
+        {REFERRALS.map((row, i) => (
+          <div
+            key={i}
+            className="grid grid-cols-5 px-[clamp(24px,3.5vw,68px)] py-[clamp(12px,2.6vh,51px)] border-b border-[#f0f0f0] last:border-b-0"
           >
-            {p}
-          </button>
+            <div className="font-polin text-[18px] text-black text-center">{row.date}</div>
+            <div className="font-polin text-[18px] text-black text-center">{row.plan}</div>
+            <div className="font-polin text-[18px] text-black text-center" dir="rtl">{row.amount}</div>
+            <div className="font-polin text-[18px] text-black text-center" dir="rtl">{row.commission}</div>
+            <div className="flex items-center justify-center gap-[5px]">
+              <span
+                className="font-polin text-[18px] "
+                style={{ color: row.active ? "#00c444" : "#8b8b8b" }}
+                dir="rtl"
+              >
+                {row.active ? "פעיל" : "לא פעיל"}
+              </span>
+              <div
+                className="shrink-0 rounded-full"
+                style={{
+                  width: 9,
+                  height: 9,
+                  background: row.active ? "#00c444" : "#8b8b8b",
+                }}
+              />
+            </div>
+          </div>
         ))}
-        <span className="font-polin text-[14px] text-black">…</span>
+
+        {/* Pagination */}
+        <div className="flex items-center justify-start gap-[15px] px-[clamp(24px,3.5vw,68px)] py-[clamp(12px,2vh,20px)]">
+          {PAGES.map((p) => (
+            <button
+              key={p}
+              onClick={() => setPage(p)}
+              className="font-polin text-[14px]"
+              style={{ color: page === p ? "#006eff" : "#000" }}
+            >
+              {p}
+            </button>
+          ))}
+          <span className="font-polin text-[14px] text-black">…</span>
+        </div>
       </div>
     </div>
   );

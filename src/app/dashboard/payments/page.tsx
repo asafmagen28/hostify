@@ -6,6 +6,7 @@ import {
   CARD_CHIP_PATTERN,
   ICON_PENCIL,
 } from "@/lib/assets";
+import SubscriptionCard from "@/components/dashboard/SubscriptionCard";
 
 export const metadata: Metadata = { title: "תשלומים" };
 
@@ -123,7 +124,7 @@ export default function PaymentsPage() {
 
       {/* Personal details card */}
       <div
-        className="bg-white shadow-sm w-full px-6 sm:px-8 lg:px-[52px] py-[clamp(14px,1.15vw,36px)]"
+        className="bg-white shadow-sm w-full px-6 sm:px-8 lg:px-[52px] py-[clamp(14px,1.15vw,36px)] mb-[clamp(8px,0.85vw,24px)]"
         style={{ borderRadius: "35px" }}
       >
         <div className="flex items-start justify-between mb-[clamp(10px,0.85vw,24px)]">
@@ -165,6 +166,135 @@ export default function PaymentsPage() {
             <div className="font-polin font-extrabold text-[20px] text-navy">העמקים 119, רמת גן, ישראל</div>
           </div>
         </div>
+      </div>
+
+      {/* Section A — ביטול מנויים (Cancel Subscriptions) */}
+      <div
+        className="bg-white shadow-sm w-full px-6 sm:px-8 lg:px-[52px] py-[clamp(14px,3.33vh,36px)] mb-[clamp(8px,2.22vh,24px)]"
+        style={{ borderRadius: "35px" }}
+      >
+        {/* Header row */}
+        <div className="flex items-start justify-between mb-[clamp(10px,2.22vh,24px)]">
+          <div className="flex flex-col gap-[20px] items-start text-right flex-1">
+            <h3 className="font-polin font-extrabold text-[22px] text-navy">ביטול מנויים</h3>
+            <p className="font-polin text-[16px] text-navy">מכאן תוכלו לבטל לורם איפסום</p>
+          </div>
+          <button
+            className="btn-primary text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-[15px] rounded-[7px]"
+            style={{ height: "43px", padding: "8px 20px" }}
+          >
+            <Image src={ICON_PENCIL} alt="" width={18} height={18} className="object-contain" />
+            עריכת פרטים
+          </button>
+        </div>
+
+        {/* Two subscription cards */}
+        <div className="flex flex-col sm:flex-row gap-[clamp(14px,1.18vw,37px)]">
+          <SubscriptionCard
+            badge="חבילת אחסון אתרים/גוניור"
+            lines={[
+              { label: "שם החבילה", value: "גוניור" },
+              { label: "מס' מזהה", value: "ff53cmwsdk" },
+            ]}
+          />
+          <SubscriptionCard
+            badge="דומיינים"
+            lines={[
+              { label: "כתובת דומיין", value: "גוניור" },
+              { label: "תאריך חידוש הבא", value: "15.01.2027" },
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* Section B — Invoices Table */}
+      <div
+        className="bg-white shadow-sm w-full overflow-x-auto"
+        style={{
+          borderRadius: "26px",
+          paddingTop: "clamp(14px,2vh,48px)",
+          paddingBottom: "clamp(14px,2vh,48px)",
+          paddingLeft: "clamp(20px,2.4vw,54px)",
+          paddingRight: "clamp(20px,2.4vw,54px)",
+        }}
+      >
+        {/* Table header row */}
+        <div
+          className="flex items-center border-b border-[#f0f0f0]"
+          style={{
+            gap: "clamp(40px,6.25vw,120px)",
+            minHeight: "clamp(55px,6.75vh,73px)",
+          }}
+        >
+          <div className="font-polin font-extrabold text-[18px] text-navy w-[clamp(100px,7.6vw,146px)] text-center shrink-0">דרישת תשלום מס&apos;</div>
+          <div className="font-polin font-extrabold text-[18px] text-navy w-[clamp(90px,6.67vw,128px)] text-center shrink-0">תאריך יצירה</div>
+          <div className="font-polin font-extrabold text-[18px] text-navy w-[clamp(85px,5.73vw,110px)] text-center shrink-0">לתשלום עד</div>
+          <div className="font-polin font-extrabold text-[18px] text-navy w-[clamp(90px,6.67vw,128px)] text-center shrink-0">סך הכל לתשלום</div>
+          <div className="font-polin font-extrabold text-[18px] text-navy w-[clamp(80px,6.67vw,128px)] text-center shrink-0">סטטוס</div>
+          <div className="font-polin font-extrabold text-[18px] text-navy w-[clamp(100px,7.4vw,142px)] text-center shrink-0">הורדת מסמך</div>
+        </div>
+
+        {/* Table rows */}
+        {[
+          { id: "65544",  created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: true  },
+          { id: "534543", created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: true  },
+          { id: "65544",  created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: true  },
+          { id: "534543", created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: true  },
+          { id: "65544",  created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: true  },
+          { id: "543453", created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: false },
+          { id: "65544",  created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: false },
+          { id: "534543", created: "15.01.2026", due: "15.01.2026", total: "₪3.00",  paid: false },
+        ].map((row, i) => (
+          <div
+            key={i}
+            className="flex items-center border-b border-[#f0f0f0] last:border-b-0"
+            style={{
+              gap: "clamp(40px,6.25vw,120px)",
+              minHeight: "clamp(55px,6.75vh,73px)",
+            }}
+          >
+            {/* Invoice number */}
+            <div className="font-polin text-[18px] text-navy w-[clamp(100px,7.6vw,146px)] text-center shrink-0">{row.id}</div>
+            {/* Created date */}
+            <div className="font-polin text-[18px] text-navy w-[clamp(90px,6.67vw,128px)] text-center shrink-0">{row.created}</div>
+            {/* Due date */}
+            <div className="font-polin text-[18px] text-navy w-[clamp(85px,5.73vw,110px)] text-center shrink-0">{row.due}</div>
+            {/* Total */}
+            <div className="font-polin text-[18px] text-navy w-[clamp(90px,6.67vw,128px)] text-center shrink-0">{row.total}</div>
+            {/* Status badge */}
+            <div className="w-[clamp(80px,6.67vw,128px)] flex justify-center shrink-0">
+              {row.paid ? (
+                <span
+                  className="font-polin text-[18px] px-[10px] py-[2px] rounded-[7px]"
+                  style={{ background: "#d5f6e0", color: "#00c444" }}
+                >
+                  שולם
+                </span>
+              ) : (
+                <span
+                  className="font-polin text-[18px] px-[10px] py-[2px] rounded-[7px]"
+                  style={{ background: "#ffdcdd", color: "#f21e3d" }}
+                >
+                  לא שולם
+                </span>
+              )}
+            </div>
+            {/* Download status */}
+            <div className="w-[clamp(100px,7.4vw,142px)] flex items-center justify-center gap-[5px] shrink-0">
+              {row.paid ? (
+                <>
+                  <span className="font-polin text-[18px]" style={{ color: "#00c444" }}>פעיל</span>
+                  <div className="rounded-full size-[9px] shrink-0" style={{ background: "#00c444" }} />
+                </>
+              ) : (
+                <>
+                  <span className="font-polin text-[18px]" style={{ color: "#a8a8a8" }}>לא פעיל</span>
+                  <div className="rounded-full size-[9px] shrink-0" style={{ background: "#a8a8a8" }} />
+                </>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
