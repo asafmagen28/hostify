@@ -61,6 +61,7 @@ export default function LoginPage() {
             autoComplete="email"
             placeholder='דוא"ל'
             className="w-full outline-none text-right placeholder-white/40"
+            suppressHydrationWarning
             style={{
               height: "55px",
               borderRadius: "7px",
@@ -81,6 +82,7 @@ export default function LoginPage() {
             type="password"
             placeholder="סיסמא"
             className="w-full outline-none text-right placeholder-white/40"
+            suppressHydrationWarning
             style={{
               height: "55px",
               borderRadius: "7px",

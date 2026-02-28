@@ -1,23 +1,5 @@
 @import "tailwindcss";
 
-/* Polin font — place files at /public/fonts/Polin-Regular.woff2 and Polin-ExtraBold.woff2 */
-@font-face {
-  font-family: 'Polin';
-  font-weight: 400;
-  font-style: normal;
-  src: local('Polin Regular'), local('Polin-Regular'),
-       url('/fonts/Polin-Regular.woff2') format('woff2');
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Polin';
-  font-weight: 800;
-  font-style: normal;
-  src: local('Polin ExtraBold'), local('Polin-ExtraBold'),
-       url('/fonts/Polin-ExtraBold.woff2') format('woff2');
-  font-display: swap;
-}
-
 @theme {
   --color-primary: #006eff;
   --color-navy: #001c51;
@@ -25,8 +7,8 @@
   --color-badge-bg: #e1f0ff;
   --color-muted: #717171;
   --color-muted-alt: #8e8e8e;
-  --font-hebrew: var(--font-noto-hebrew), 'Noto Sans Hebrew', 'Arial Hebrew', sans-serif;
-  --font-polin: 'Polin', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
+  --font-hebrew: var(--font-rubik), 'Rubik', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
+  --font-polin: var(--font-rubik), 'Rubik', var(--font-noto-hebrew), 'Noto Sans Hebrew', sans-serif;
 }
 
 body {
