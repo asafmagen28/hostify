@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   ICON_MANAGE_SERVER,
   ICON_MANAGE_DETAILS,
@@ -32,7 +33,7 @@ export default function ManageMenu({ onClose }: ManageMenuProps) {
               role="menuitem"
               onClick={onClose}
             >
-              <img src={icon} alt={alt} className="size-[20px] object-contain flex-shrink-0" />
+              <Image src={icon} alt={alt} width={20} height={20} className="object-contain flex-shrink-0" />
               <span className="font-polin text-[14px] text-black leading-none">{label}</span>
             </button>
           </li>

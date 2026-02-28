@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useRef, useState, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import {
   ICON_HOME,
@@ -11,6 +12,7 @@ import {
   ICON_LOGOUT,
 } from "@/lib/assets";
 import QuickActionsMenu from "./QuickActionsMenu";
+import { useOutsideClick } from "@/hooks/useOutsideClick";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -29,23 +31,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const [qaOpen, setQaOpen] = useState(false);
   const qaWrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!qaOpen) return;
-    function handleOutside(e: MouseEvent) {
-      if (qaWrapperRef.current && !qaWrapperRef.current.contains(e.target as Node)) {
-        setQaOpen(false);
-      }
-    }
-    function handleEscape(e: KeyboardEvent) {
-      if (e.key === "Escape") setQaOpen(false);
-    }
-    document.addEventListener("mousedown", handleOutside);
-    document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("mousedown", handleOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [qaOpen]);
+  const closeQa = useCallback(() => setQaOpen(false), []);
+  useOutsideClick(qaWrapperRef, closeQa, qaOpen);
 
   return (
     <>
@@ -94,27 +81,15 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all ${isActive
-                  ? "nav-active"
-                  : "hover:bg-white/5"
-                  }`}
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl transition-all ${isActive ? "nav-active" : "hover:bg-white/5"}`}
               >
-                {/* Icon */}
                 <span
                   className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl"
-                  style={{
-                    background: isActive
-                      ? "rgba(0, 110, 255, 0.25)"
-                      : "rgba(255, 255, 255, 0.07)",
-                  }}
+                  style={{ background: isActive ? "rgba(0, 110, 255, 0.25)" : "rgba(255, 255, 255, 0.07)" }}
                 >
-                  <img src={item.icon} alt="" className="w-5 h-5 object-contain" />
+                  <Image src={item.icon} alt="" width={20} height={20} className="object-contain" />
                 </span>
-                {/* Label */}
-                <span
-                  className={`text-[17px] font-polin ${isActive ? "text-white" : "text-white/70"
-                    }`}
-                >
+                <span className={`text-[17px] font-polin ${isActive ? "text-white" : "text-white/70"}`}>
                   {item.label}
                 </span>
               </Link>
@@ -158,7 +133,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-xl"
               style={{ background: "rgba(255, 255, 255, 0.07)" }}
             >
-              <img src={ICON_LOGOUT} alt="" className="w-5 h-5 object-contain" />
+              <Image src={ICON_LOGOUT} alt="" width={20} height={20} className="object-contain" />
             </span>
             <span className="text-white/70 text-[17px] font-bold">יציאה</span>
           </Link>
@@ -185,15 +160,10 @@ function HostifyLogo() {
 function HostifyHIcon({ size = 38 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Left pillar - shorter, starts lower (stepped design) */}
       <rect x="2" y="8" width="10" height="28" rx="2.5" fill="#006eff" />
-      {/* Small top-left accent square */}
       <rect x="2" y="2" width="10" height="8" rx="2.5" fill="#006eff" opacity="0.55" />
-      {/* Right pillar - full height */}
       <rect x="26" y="2" width="10" height="34" rx="2.5" fill="#006eff" />
-      {/* Crossbar */}
       <rect x="2" y="15" width="34" height="10" rx="2.5" fill="#006eff" />
-      {/* Step accent - top of left pillar connects to crossbar area */}
       <rect x="12" y="2" width="14" height="8" rx="2.5" fill="#006eff" opacity="0.35" />
     </svg>
   );

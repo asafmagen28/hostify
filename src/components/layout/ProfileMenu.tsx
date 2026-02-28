@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   ICON_PROFILE_USER,
   ICON_PROFILE_LOCK,
@@ -34,8 +35,7 @@ export default function ProfileMenu({ onClose }: ProfileMenuProps) {
               role="menuitem"
               onClick={onClose}
             >
-              {/* Icon on right (RTL natural order) */}
-              <img src={icon} alt={alt} className="size-[20px] object-contain flex-shrink-0" />
+              <Image src={icon} alt={alt} width={20} height={20} className="object-contain flex-shrink-0" />
               <span className="font-polin text-[14px] text-black leading-none">{label}</span>
             </button>
           </li>

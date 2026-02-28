@@ -1,4 +1,8 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { GOOGLE_ICON } from "@/lib/assets";
+
+export const metadata: Metadata = { title: "כניסה" };
 
 export default function LoginPage() {
   return (
@@ -13,7 +17,7 @@ export default function LoginPage() {
         ].join(", "),
       }}
     >
-      {/* Hostify logo — above the card */}
+      {/* Hostify logo */}
       <div className="relative z-10 mb-5 flex items-center gap-2.5" dir="ltr">
         <svg width="34" height="34" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="8" width="10" height="28" rx="2.5" fill="#006eff" />
@@ -22,9 +26,7 @@ export default function LoginPage() {
           <rect x="2" y="15" width="34" height="10" rx="2.5" fill="#006eff" />
           <rect x="12" y="2" width="14" height="8" rx="2.5" fill="#006eff" opacity="0.35" />
         </svg>
-        <span
-          className="text-white font-extrabold text-[24px] tracking-wide font-polin"
-        >
+        <span className="text-white font-extrabold text-[24px] tracking-wide font-polin">
           ostify
         </span>
       </div>
@@ -38,7 +40,6 @@ export default function LoginPage() {
           WebkitBackdropFilter: "blur(20px)",
         }}
       >
-        {/* Heading */}
         <h1
           className="text-white font-extrabold text-center mb-1"
           style={{ lineHeight: 1.15, fontFamily: "var(--font-polin)", fontSize: "50px" }}
@@ -46,7 +47,6 @@ export default function LoginPage() {
           שמחים שחזרת!
         </h1>
 
-        {/* Subtitle */}
         <p
           className="text-white/80 text-center mb-7"
           style={{ fontFamily: "var(--font-polin)", fontSize: "22px" }}
@@ -57,8 +57,7 @@ export default function LoginPage() {
         {/* Email input */}
         <div className="w-full mb-5 mr-1 ml-2">
           <input
-            type="text"
-            inputMode="email"
+            type="email"
             autoComplete="email"
             placeholder='דוא"ל'
             className="w-full outline-none text-right placeholder-white/40"
@@ -96,7 +95,7 @@ export default function LoginPage() {
           />
         </div>
 
-        {/* Remember me row */}
+        {/* Remember me */}
         <div className="w-full flex items-center justify-start gap-2 mb-5">
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" className="sr-only peer" />
@@ -132,7 +131,7 @@ export default function LoginPage() {
           </a>
         </div>
 
-        {/* Divider with "או" badge */}
+        {/* Divider */}
         <div className="w-full flex items-center gap-4 mb-5">
           <div className="flex-1 h-px bg-white/30" />
           <span
@@ -168,7 +167,7 @@ export default function LoginPage() {
             fontSize: "18px",
           }}
         >
-          <img src={GOOGLE_ICON} alt="" style={{ width: "22px", height: "22px" }} className="object-contain" />
+          <Image src={GOOGLE_ICON} alt="" width={22} height={22} className="object-contain" />
           כניסה באמצעות גוגל
         </button>
       </div>

@@ -1,4 +1,9 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { USER_AVATAR } from "@/lib/assets";
+
+export const metadata: Metadata = { title: "הרשאות" };
 
 interface PermissionUser {
   id: string;
@@ -26,11 +31,11 @@ export default function PermissionsPage() {
   return (
     <div>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 font-polin text-[14px] text-navy/50 mb-3">
-        <a href="/dashboard" className="hover:text-primary transition-colors">ראשי</a>
+      <nav aria-label="breadcrumb" className="flex items-center gap-2 font-polin text-[14px] text-navy/50 mb-3">
+        <Link href="/dashboard" className="hover:text-primary transition-colors">ראשי</Link>
         <span>/</span>
         <span className="font-extrabold text-primary">הרשאות</span>
-      </div>
+      </nav>
 
       {/* Page title */}
       <h1
@@ -48,10 +53,7 @@ export default function PermissionsPage() {
       {/* Invite button */}
       <button
         className="btn-primary flex items-center justify-center gap-2 text-white font-polin text-[18px] mb-[clamp(16px,3vh,40px)] transition-opacity hover:opacity-90 w-full sm:w-auto sm:min-w-[187px] rounded-[7px]"
-        style={{
-          height: "clamp(44px, 4.8vh, 52px)",
-          padding: "8px 20px",
-        }}
+        style={{ height: "clamp(44px, 4.8vh, 52px)", padding: "8px 20px" }}
       >
         הזמנת אנשים
       </button>
@@ -60,10 +62,10 @@ export default function PermissionsPage() {
       {PERMISSION_USERS.map((user) => (
         <div key={user.id} className="bg-white flex flex-wrap items-center mb-[clamp(8px,1.2vh,16px)] py-[clamp(16px,2.5vh,30px)] px-6 rounded-[20px] gap-y-4">
 
-          {/* Col 1 (rightmost in RTL): Avatar + name + email */}
+          {/* Col 1: Avatar + name + email */}
           <div className="w-full sm:flex-1 flex items-center">
             <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ml-4 flex-shrink-0">
-              <img src={user.avatar} alt={user.name} className="w-full h-full object-cover" />
+              <Image src={user.avatar} alt={user.name} width={48} height={48} className="w-full h-full object-cover" />
             </div>
             <div>
               <div className="font-extrabold text-[15px] text-navy">{user.name}</div>
@@ -71,25 +73,24 @@ export default function PermissionsPage() {
             </div>
           </div>
 
-          {/* Col 2: Last login — stacked */}
+          {/* Col 2: Last login */}
           <div className="w-1/2 sm:flex-1 flex flex-col gap-0.5">
             <span className="font-extrabold text-[15px] text-navy">מועד התחברות אחרון</span>
             <span className="font-polin text-[15px] text-navy">{user.lastLogin}</span>
           </div>
 
-          {/* Col 3: Permission — stacked */}
+          {/* Col 3: Permission */}
           <div className="w-1/2 sm:flex-1 flex flex-col gap-0.5">
             <span className="font-extrabold text-[15px] text-navy">הרשאת גישה:</span>
             <span className="font-polin text-[15px] text-navy">{user.permission}</span>
           </div>
 
-          {/* Col 4 (leftmost): Status */}
+          {/* Col 4: Status */}
           <div className="w-full sm:flex-1 flex sm:justify-end">
             <div className="px-4 py-2 font-extrabold text-[14px] text-navy opacity-60">
               {user.status}
             </div>
           </div>
-
         </div>
       ))}
 

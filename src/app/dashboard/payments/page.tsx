@@ -1,18 +1,23 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import {
   CARD_BG_MASK,
   CARD_CHIP_PATTERN,
   ICON_PENCIL,
 } from "@/lib/assets";
 
+export const metadata: Metadata = { title: "תשלומים" };
+
 export default function PaymentsPage() {
   return (
     <div>
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 font-polin text-[14px] text-navy mb-3">
-        <a href="/dashboard" className="hover:text-primary transition-colors">ראשי</a>
+      <nav aria-label="breadcrumb" className="flex items-center gap-2 font-polin text-[14px] text-navy mb-3">
+        <Link href="/dashboard" className="hover:text-primary transition-colors">ראשי</Link>
         <span>/</span>
         <span className="font-extrabold text-primary">תשלומים</span>
-      </div>
+      </nav>
 
       {/* Page title */}
       <h1 className="text-primary font-extrabold mb-[clamp(12px,1.15vw,32px)] text-[30px] sm:text-[40px] lg:text-[50px]" style={{ lineHeight: 1.1 }}>
@@ -32,11 +37,12 @@ export default function PaymentsPage() {
             background: "linear-gradient(178.38deg, #006eff 13.491%, #001c51 109.75%)",
           }}
         >
-          {/* Card mask overlay (texture/glare from Figma) */}
-          <img
+          {/* Card mask overlay */}
+          <Image
             src={CARD_BG_MASK}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            fill
+            className="object-cover pointer-events-none"
           />
 
           {/* Card content */}
@@ -44,7 +50,6 @@ export default function PaymentsPage() {
             className="relative z-10 h-full flex flex-col justify-between"
             style={{ padding: "clamp(14px, 1.15vw, 26px) 29px" }}
           >
-            {/* Top row: placeholder text (start/right in RTL) + button (end/left in RTL) */}
             <div className="flex justify-between items-start">
               <p
                 className="text-white/80 font-polin"
@@ -54,18 +59,13 @@ export default function PaymentsPage() {
               </p>
               <button
                 className="font-polin text-[18px] text-primary transition-opacity hover:opacity-90"
-                style={{
-                  background: "white",
-                  height: "43px",
-                  padding: "8px 20px",
-                  borderRadius: "7px",
-                }}
+                style={{ background: "white", height: "43px", padding: "8px 20px", borderRadius: "7px" }}
               >
                 עדכון פרטי כרטיס
               </button>
             </div>
 
-            {/* Chip — left */}
+            {/* Chip */}
             <div className="flex justify-end ml-8">
               <div
                 className="relative overflow-hidden"
@@ -76,24 +76,18 @@ export default function PaymentsPage() {
                   background: "radial-gradient(circle at 40% 40%, #fff 0%, #dddcda 100%)",
                 }}
               >
-                <img
-                  src={CARD_CHIP_PATTERN}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+                <Image src={CARD_CHIP_PATTERN} alt="" fill className="object-cover" />
               </div>
             </div>
 
-            {/* Card number + expiry side-by-side */}
+            {/* Card number + expiry */}
             <div className="flex justify-between items-end">
-              {/* First in DOM → inline-start (RIGHT in RTL): expiry */}
               <div
                 className="text-white/70 font-polin"
                 style={{ fontSize: "clamp(16px, 1.6vw, 32px)", letterSpacing: "1.1005px" }}
               >
                 09/25
               </div>
-              {/* Last in DOM → inline-end (LEFT in RTL): card number */}
               <div
                 className="text-white/90 font-polin"
                 style={{ fontSize: "clamp(16px, 1.6vw, 32px)", letterSpacing: "1.1005px" }}
@@ -119,10 +113,7 @@ export default function PaymentsPage() {
             </p>
             <button
               className="btn-primary text-white font-polin text-[18px] transition-opacity hover:opacity-90 rounded-[7px]"
-              style={{
-                height: "43px",
-                padding: "8px 20px",
-              }}
+              style={{ height: "43px", padding: "8px 20px" }}
             >
               לתשלום היתרות בחשבון
             </button>
@@ -142,17 +133,13 @@ export default function PaymentsPage() {
           </div>
           <button
             className="btn-primary text-white font-polin text-[18px] transition-opacity hover:opacity-90 flex items-center gap-[15px] rounded-[7px]"
-            style={{
-              height: "43px",
-              padding: "8px 20px",
-            }}
+            style={{ height: "43px", padding: "8px 20px" }}
           >
-            <img src={ICON_PENCIL} alt="" className="w-[18px] h-[18px] object-contain" />
+            <Image src={ICON_PENCIL} alt="" width={18} height={18} className="object-contain" />
             עריכת פרטים
           </button>
         </div>
         <div className="flex flex-col sm:flex-row gap-[clamp(14px,1.18vw,28px)]">
-          {/* Name / company field */}
           <div
             className="flex flex-col justify-center flex-1"
             style={{
@@ -165,8 +152,6 @@ export default function PaymentsPage() {
             <div className="font-polin text-[14px] text-navy opacity-60">שם או שם חברה</div>
             <div className="font-polin font-extrabold text-[20px] text-navy">עומר מיראן</div>
           </div>
-
-          {/* Address field */}
           <div
             className="flex flex-col justify-center flex-1"
             style={{
@@ -181,7 +166,6 @@ export default function PaymentsPage() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   ICON_QA_TRANSFER_HOST,
   ICON_QA_TRANSFER_CLIENT,
@@ -40,7 +41,7 @@ export default function QuickActionsMenu({ onClose }: QuickActionsMenuProps) {
               role="menuitem"
               onClick={onClose}
             >
-              <img src={icon} alt={alt} className="size-[20px] object-contain flex-shrink-0" />
+              <Image src={icon} alt={alt} width={20} height={20} className="object-contain flex-shrink-0" />
               <span className="font-polin text-[14px] text-black leading-none">{label}</span>
             </button>
           </li>
