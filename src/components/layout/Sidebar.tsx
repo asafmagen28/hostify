@@ -10,6 +10,7 @@ import {
   ICON_PARTNERS,
   ICON_PAYMENTS,
   ICON_LOGOUT,
+  HOSTIFY_LOGO,
 } from "@/lib/assets";
 import QuickActionsMenu from "./QuickActionsMenu";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
@@ -145,26 +146,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
 function HostifyLogo() {
   return (
-    <div className="flex items-center gap-2" dir="ltr">
-      <HostifyHIcon />
-      <span
-        className="text-white font-extrabold text-[26px] tracking-wide"
-        style={{ fontFamily: "var(--font-polin)" }}
-      >
-        ostify
-      </span>
-    </div>
-  );
-}
-
-function HostifyHIcon({ size = 38 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="2" y="8" width="10" height="28" rx="2.5" fill="#006eff" />
-      <rect x="2" y="2" width="10" height="8" rx="2.5" fill="#006eff" opacity="0.55" />
-      <rect x="26" y="2" width="10" height="34" rx="2.5" fill="#006eff" />
-      <rect x="2" y="15" width="34" height="10" rx="2.5" fill="#006eff" />
-      <rect x="12" y="2" width="14" height="8" rx="2.5" fill="#006eff" opacity="0.35" />
-    </svg>
+    <Image src={HOSTIFY_LOGO} alt="Hostify" width={200} height={41} className="object-contain mr-1" />
   );
 }

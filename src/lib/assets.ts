@@ -1,6 +1,9 @@
 // Local asset paths — downloaded from Figma, no expiry.
 // To refresh from Figma: node scripts/download-assets.mjs
 
+// === BRAND ===
+export const HOSTIFY_LOGO    = "/assets/hostify-logo.png";
+
 // === LOGIN PAGE ===
 export const GOOGLE_ICON     = "/assets/google-icon.svg";
 
@@ -72,4 +75,4 @@ export const PARTNERS_DIVIDER         = "/assets/partners-divider.svg";
 export const PARTNERS_CHART_LINES     = "/assets/partners-chart-lines.svg";
 export const PARTNERS_ICON_CLICKS     = "/assets/partners-icon-clicks.svg";
 export const PARTNERS_ICON_SIGNUPS    = "/assets/partners-icon-signups.svg";
-export const PARTNERS_ICON_CONVERSION = "/assets/partners-icon-conversion.svg";
+export const PARTNERS_ICON_CONVERSION = "/assets/partners-icon-conversion.png";

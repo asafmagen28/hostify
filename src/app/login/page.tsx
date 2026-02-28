@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { GOOGLE_ICON } from "@/lib/assets";
+import { GOOGLE_ICON, HOSTIFY_LOGO } from "@/lib/assets";
 
 export const metadata: Metadata = { title: "כניסה" };
 
@@ -18,17 +18,8 @@ export default function LoginPage() {
       }}
     >
       {/* Hostify logo */}
-      <div className="relative z-10 mb-5 flex items-center gap-2.5" dir="ltr">
-        <svg width="34" height="34" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="8" width="10" height="28" rx="2.5" fill="#006eff" />
-          <rect x="2" y="2" width="10" height="8" rx="2.5" fill="#006eff" opacity="0.55" />
-          <rect x="26" y="2" width="10" height="34" rx="2.5" fill="#006eff" />
-          <rect x="2" y="15" width="34" height="10" rx="2.5" fill="#006eff" />
-          <rect x="12" y="2" width="14" height="8" rx="2.5" fill="#006eff" opacity="0.35" />
-        </svg>
-        <span className="text-white font-extrabold text-[24px] tracking-wide font-polin">
-          ostify
-        </span>
+      <div className="relative z-10 mb-5">
+        <Image src={HOSTIFY_LOGO} alt="Hostify" width={160} height={44} className="object-contain" />
       </div>
 
       {/* Glass card */}
