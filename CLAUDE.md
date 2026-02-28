@@ -29,29 +29,47 @@ Hebrew RTL hosting dashboard built from Figma designs. Stack: **Next.js 16 (App 
 - Use `font-polin` (Tailwind utility) for Polin font; `font-extrabold` triggers the 800-weight variant.
 - Two global CSS classes: `.nav-active` (glass sidebar highlight), `.btn-primary` (gradient button).
 
-### Dashboard shell (`src/app/dashboard/layout.tsx`)
-The shell is a full-viewport flex row: navy `<aside>` (sidebar, 280px, RTL-right) + light-blue `<main>` (flex-1, rounded card on md+). The layout is a Client Component that owns `sidebarOpen` state and passes it down to `<Sidebar>` and `<Header>`.
+### Dashboard shell (`src/components/layout/DashboardShell.tsx`)
+The shell is a full-viewport flex row: navy `<aside>` (sidebar, 280px, RTL-right) + light-blue `<main>` (flex-1, rounded card on md+). `DashboardShell` is a Client Component that owns `sidebarOpen` state and passes it to `<Sidebar>` and `<Header>`. `src/app/dashboard/layout.tsx` is a thin Server Component that just wraps `<DashboardShell>`.
+
+### Loading / error states
+Each route has a colocated `loading.tsx` (Next.js Suspense skeleton) built from `<SkeletonBlock>`. `dashboard/error.tsx` is a Client Component with a reset button. `src/app/not-found.tsx` covers global 404.
+
+### Hooks
+- `src/hooks/useOutsideClick.ts` — used by all dropdown menus (ProfileMenu, NotificationsMenu, ManageMenu, QuickActionsMenu) to close on outside click or Escape key.
 
 ### Component structure
 ```
 src/
   app/
     layout.tsx                  # Root layout — RTL, fonts
+    not-found.tsx               # Global 404
     page.tsx                    # Redirects → /login
     login/page.tsx
     dashboard/
-      layout.tsx                # Shell: Sidebar + Header + content slot
+      layout.tsx                # Thin Server Component → <DashboardShell>
       page.tsx                  # Main dashboard (hosting card, stats)
+      loading.tsx               # Suspense skeleton
+      error.tsx                 # Error boundary (Client Component)
       permissions/page.tsx
       partners/page.tsx
       payments/page.tsx
-  components/layout/
-    Sidebar.tsx                 # Nav links + QuickActionsMenu toggle
-    Header.tsx                  # Avatar, notifications, info-center + dropdown menus
-    ProfileMenu.tsx
-    NotificationsMenu.tsx
-    ManageMenu.tsx
-    QuickActionsMenu.tsx
+  components/
+    layout/
+      DashboardShell.tsx        # Client Component: sidebarOpen state, shell layout
+      Sidebar.tsx               # Nav links + QuickActionsMenu toggle
+      Header.tsx                # Avatar, notifications, info-center + dropdown menus
+      ProfileMenu.tsx
+      NotificationsMenu.tsx
+      ManageMenu.tsx
+      QuickActionsMenu.tsx
+    dashboard/
+      HostingCard.tsx
+      PartnersContent.tsx
+    ui/
+      SkeletonBlock.tsx         # Reusable animated skeleton primitive
+  hooks/
+    useOutsideClick.ts
   lib/
     assets.ts                   # All asset paths → /public/assets/ (local SVGs)
 ```
